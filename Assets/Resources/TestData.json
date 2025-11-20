@@ -1,0 +1,35 @@
+[
+    {
+    "id": "A1b2C3d4E5",
+    "type": "Cube",
+    "size": { "x": 1.0, "y": 1.0, "z": 1.0 },
+    "position": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "rotation": { "x": 0.0, "y": 15.0, "z": 0.0 },
+    "factor": 1.0,
+    "color": "#FF0000",
+    "texture": "metal",
+    "weight": 2.5
+    },
+    {
+    "id": "Zx9Yv7Kq2L",
+    "type": "Ball",
+    "size": { "x": 2.0, "y": 2.0, "z": 2.0 },
+    "position": { "x": 5.0, "y": 1.0, "z": 3.0 },
+    "rotation": { "x": 15.0, "y": 45.0, "z": 0.0 },
+    "factor": 0.75,
+    "color": "#00FF00",
+    "texture": "glass",
+    "weight": 1.2
+    },
+    {
+    "id": "mN8oP1qR2s",
+    "type": "Cylinder",
+    "size": { "x": 1.0, "y": 1.0, "z": 1.0 },
+    "position": { "x": -2.5, "y": 0.0, "z": 1.0 },
+    "rotation": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "factor": 1.5,
+    "color": "#0000FF",
+    "texture": "plastic",
+    "weight": 3.8
+    }
+]

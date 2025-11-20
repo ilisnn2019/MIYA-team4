@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6815645675460104289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -91.56835
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.018
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -65.779
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9991395
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.039427586
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0007412775
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.012856888
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 4.518
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.143
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bfd97ddbb32728343af6993a76355a59, type: 2}
+    - target: {fileID: 919132149155446097, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      propertyPath: m_Name
+      value: Parasol
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2256411125526941063}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6694437518130886906}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2557676504176486695}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2841158560111083086}
+  m_SourcePrefab: {fileID: 100100000, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+--- !u!1 &5933317070060465456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dbd7084b879d5b945af2f619bc3118e6, type: 3}
+  m_PrefabInstance: {fileID: 6815645675460104289}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2256411125526941063
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933317070060465456}
+  serializedVersion: 4
+  m_Mass: 180
+  m_Drag: 0
+  m_AngularDrag: 5
+  m_CenterOfMass: {x: 0, y: -0.0254, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 0
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &6694437518130886906
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933317070060465456}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.001
+  m_Height: 0.05445774
+  m_Direction: 1
+  m_Center: {x: -0.00001879502, y: 0.0005067298, z: -0.000013275072}
+--- !u!65 &2557676504176486695
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933317070060465456}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.003, z: 0.02}
+  m_Center: {x: -0.00001879502, y: -0.025, z: -0.000013275072}
+--- !u!114 &2841158560111083086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933317070060465456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776b35a25441b12429eacc86f0b674e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectInfo:
+    id: 
+    type: parasol
+    size: {x: 100, y: 100, z: 100}
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    factor: 1
+    color: 
+    texture: 
+    weight: 180

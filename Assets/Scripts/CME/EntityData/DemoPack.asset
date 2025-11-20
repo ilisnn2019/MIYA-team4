@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465824e3c55160f4f9eba1e0bf6fc25e, type: 3}
+  m_Name: DemoPack
+  m_EditorClassIdentifier: 
+  entitySpec:
+  - {fileID: 11400000, guid: c865cd4f109b0d64a8286f59e6943f0b, type: 2}
+  - {fileID: 11400000, guid: fb27ac2b935711a40a7731161305fc6d, type: 2}
+  - {fileID: 11400000, guid: accac3522bc29cf42913b1e7b196ebd6, type: 2}
+  - {fileID: 11400000, guid: 5e86ac6a9b2002c4daa51a8fb3427cdd, type: 2}
+  - {fileID: 11400000, guid: e773c6b6474ba14438ae574e49b9eada, type: 2}

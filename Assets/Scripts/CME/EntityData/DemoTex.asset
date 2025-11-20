@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20bdb31f8c6c1547a598ce6870ca04b, type: 3}
+  m_Name: DemoTex
+  m_EditorClassIdentifier: 
+  textureSpec:
+  - {fileID: 11400000, guid: c1157074c37082a4dbbc248d1e440bf2, type: 2}
+  - {fileID: 11400000, guid: 921485924d702414cb207a6958dfe244, type: 2}

@@ -1,0 +1,169 @@
+[
+  {
+    "name": "create_object",
+    "description": "Create an object.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "object_type": {
+          "type": "string",
+          "description": "Type of object to create. Available types: Cube, Ball, Cylinder."
+        },
+        "id": {
+          "type": "string",
+          "description": "A unique 10-character alphanumeric string (uppercase and lowercase letters). Used to identify the object."
+        }
+      },
+      "required": ["object_type", "id"]
+    }
+  },
+  {
+    "name": "rotate_object",
+    "description": "Rotate an object by a given angle. Only affects the Y-axis rotation.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "ID of the object to rotate."
+        },
+        "angle": {
+          "type": "number",
+          "description": "Rotation angle in degrees (0–360), applied around the Y-axis."
+        }
+      },
+      "required": ["target", "angle"]
+    }
+  },
+  {
+    "name": "move_object",
+    "description": "Move an object to a new world-space position.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "ID of the object to move."
+        },
+        "x": {
+          "type": "number",
+          "description": "X-axis position (float)."
+        },
+        "y": {
+          "type": "number",
+          "description": "Y-axis position (float)."
+        },
+        "z": {
+          "type": "number",
+          "description": "Z-axis position (float)."
+        }
+      },
+      "required": ["target", "x", "y", "z"]
+    }
+  },
+  {
+    "name": "scale_object",
+    "description": "Scale the object uniformly in all directions.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "ID of the object to scale."
+        },
+        "factor": {
+          "type": "number",
+          "description": "Scaling factor (e.g., 1.0 = original size, 2.0 = double size)."
+        }
+      },
+      "required": ["target", "factor"]
+    }
+  },
+  {
+    "name": "set_color",
+    "description": "Set the color of an object using a hex code.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "ID of the object to apply the color to."
+        },
+        "color": {
+          "type": "string",
+          "description": "Hex color code (e.g., #FF4AC3).",
+          "pattern": "^#([A-Fa-f0-9]{6})$"
+        },
+        "brightness": {
+          "type": "number",
+          "description": "Adjustment of brightness."
+        }
+      },
+      "required": ["target", "color"]
+    }
+  },
+  {
+    "name": "set_weight",
+    "description": "Assign a weight number value to the object.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "ID of the object to set the weight for."
+        },
+        "weight": {
+          "type": "number",
+          "description": "Weight value (float)"
+        }
+      },
+      "required": ["target", "weight"]
+    }
+  },
+  {
+    "name": "set_texture",
+    "description": "Set the texture of an object. Texture name must match one of the available options or their synonyms.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "ID of the object to set the texture for."
+        },
+        "texture": {
+          "type": "string",
+          "description": "Available Textures: Wooden (alias : wood), Metallic (metal), Marble (stone), Brick (bricks, masonry). Use one of the main types instead of alias."
+        }
+      },
+      "required": ["target", "texture"]
+    }
+  },
+  {
+    "name": "select_object",
+    "description": "Select an object in the scene (for highlighting or further operations).",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "ID of the object to select."
+        }
+      },
+      "required": ["target"]
+    }
+  },
+  {
+    "name": "handle_unknown_command",
+    "description": "Handle unknown or unsupported user commands gracefully.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "reason": {
+          "type": "string",
+          "description": "Explanation of why the command could not be understood or executed."
+        }
+      },
+      "required": ["reason"]
+    }
+  }
+]
