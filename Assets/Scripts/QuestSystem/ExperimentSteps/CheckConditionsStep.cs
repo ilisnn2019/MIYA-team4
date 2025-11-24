@@ -25,7 +25,7 @@ public class CheckConditionsStep : WaitEnterA
     // ---------------------------------------------------------
     // 캐싱된 에이전트 리스트 (핵심 최적화)
     // ---------------------------------------------------------
-    private List<EntityInfoAgent> _cachedAgents = new List<EntityInfoAgent>();
+    [SerializeField]private List<EntityInfoAgent> _cachedAgents = new List<EntityInfoAgent>();
 
     // ---------------------------------------------------------
     // 조건 정의 (Inspector용)

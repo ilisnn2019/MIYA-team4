@@ -314,10 +314,34 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -325,6 +349,7 @@ MonoBehaviour:
   alphaTime: 0
   currentMode: 0
   checkInterval: 0.2
+  _cachedAgents: []
   groupA:
     label: "\uC870\uAC74 \uC124\uBA85"
     nameContains: cube
@@ -5718,10 +5743,34 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -5729,6 +5778,7 @@ MonoBehaviour:
   alphaTime: 0
   currentMode: 3
   checkInterval: 0.2
+  _cachedAgents: []
   groupA:
     label: "\uC870\uAC74 \uC124\uBA85"
     nameContains: sphere
@@ -5899,7 +5949,19 @@ MonoBehaviour:
       m_Calls: []
   OnStepFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -5907,6 +5969,7 @@ MonoBehaviour:
   alphaTime: 0
   currentMode: 0
   checkInterval: 0.2
+  _cachedAgents: []
   groupA:
     label: "\uD070 \uB178\uB780 \uD050\uBE0C \uB450\uAC1C"
     nameContains: cube
@@ -6446,6 +6509,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &798774165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798774167}
+  - component: {fileID: 798774166}
+  m_Layer: 0
+  m_Name: ExperimentHelper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &798774166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798774165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa9af5fdcbf144043b094fc69bfaeb69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityPack: {fileID: 11400000, guid: 8287f7497c901434ea929ae4ce064fd3, type: 2}
+  TexturePack: {fileID: 11400000, guid: cd555750e58591e44ac8093472699ad4, type: 2}
+--- !u!4 &798774167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798774165}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.605215, y: -26.444563, z: 20.917128}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &849221076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6593,10 +6702,34 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -6604,6 +6737,7 @@ MonoBehaviour:
   alphaTime: 0
   currentMode: 0
   checkInterval: 0.2
+  _cachedAgents: []
   groupA:
     label: "\uC870\uAC74 \uC124\uBA85"
     nameContains: sphere
@@ -6821,10 +6955,34 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -6832,6 +6990,7 @@ MonoBehaviour:
   alphaTime: 0
   currentMode: 2
   checkInterval: 0.2
+  _cachedAgents: []
   groupA:
     label: "\uC870\uAC74 \uC124\uBA85"
     nameContains: sphere
@@ -6923,10 +7082,34 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -6934,6 +7117,7 @@ MonoBehaviour:
   alphaTime: 0
   currentMode: 0
   checkInterval: 0.2
+  _cachedAgents: []
   groupA:
     label: "\uC870\uAC74 \uC124\uBA85"
     nameContains: sphere
@@ -7038,7 +7222,31 @@ MonoBehaviour:
         m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:position:0,0,0:color:#ff0000
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -7046,9 +7254,10 @@ MonoBehaviour:
   alphaTime: 0
   currentMode: 0
   checkInterval: 0.2
+  _cachedAgents: []
   groupA:
     label: "\uC870\uAC74 \uC124\uBA85"
-    nameContains: beach_ball
+    nameContains: sphere
     requiredCount: 1
     checkColor: 1
     targetColor: '#FF0000'
@@ -7580,7 +7789,31 @@ MonoBehaviour:
       m_Calls: []
   OnStepFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:position:0,0,0:color:#FF0000:type:cylinder:position:1,0,1:color:#0000ff
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -7588,6 +7821,7 @@ MonoBehaviour:
   alphaTime: 0
   currentMode: 1
   checkInterval: 0.2
+  _cachedAgents: []
   groupA:
     label: "\uC870\uAC74 \uC124\uBA85"
     nameContains: sphere
@@ -7961,10 +8195,34 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -7972,6 +8230,7 @@ MonoBehaviour:
   alphaTime: 0
   currentMode: 2
   checkInterval: 0.2
+  _cachedAgents: []
   groupA:
     label: "\uC870\uAC74 \uC124\uBA85"
     nameContains: cylinder
@@ -8011,6 +8270,17 @@ MonoBehaviour:
     checkDistinctColors: 0
     distinctColors: []
   geometricTolerance: 0.2
+--- !u!114 &1885791772 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+  m_PrefabInstance: {fileID: 6021192937439796713}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8321618446f1f24dbb898ef658f8cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1958321653
 GameObject:
   m_ObjectHideFlags: 0
@@ -8061,10 +8331,34 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -8072,6 +8366,7 @@ MonoBehaviour:
   alphaTime: 0
   currentMode: 0
   checkInterval: 0.2
+  _cachedAgents: []
   groupA:
     label: "\uC870\uAC74 \uC124\uBA85"
     nameContains: cylinder
@@ -23358,12 +23653,16 @@ PrefabInstance:
       value: 16576
       objectReference: {fileID: 0}
     - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: editorInput
       value: "\uBE44\uCE58\uBCFC\uC744 \uD558\uB098 \uC0DD\uC131\uD574."
       objectReference: {fileID: 0}
     - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: prompt_name
-      value: 
+      value: exp_prompt
       objectReference: {fileID: 0}
     - target: {fileID: 4303148974527459168, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: m_Name
@@ -23418,6 +23717,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7238302623380807331, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: newPromptName
+      value: exp_prompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238302623380807331, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: objectListFile
+      value: 
+      objectReference: {fileID: 11400000, guid: 8287f7497c901434ea929ae4ce064fd3, type: 2}
+    - target: {fileID: 7238302623380807331, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: textureListFile
+      value: 
+      objectReference: {fileID: 11400000, guid: cd555750e58591e44ac8093472699ad4, type: 2}
+    - target: {fileID: 7238302623380807331, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: entities.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -23452,6 +23763,34 @@ PrefabInstance:
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1885791772}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnStartDetecting
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VoiceDetector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28489,6 +28828,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 468369974}
+  - {fileID: 798774167}
   - {fileID: 253405636}
   - {fileID: 6021192937439796713}
   - {fileID: 849221076}

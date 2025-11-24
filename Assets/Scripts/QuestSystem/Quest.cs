@@ -76,6 +76,7 @@ public class Quest : MonoBehaviour
         //manager.ui.setTextColor(currentQuestStepIndex, Color.yellow);
     }
 
+    [ContextMenu("MoveStep")]
     public void MoveToNextStep() //���� �������� �̵�
     {
         questSteps[currentQuestStepIndex].GetComponent<QuestStep>().OnStepFinished.Invoke();

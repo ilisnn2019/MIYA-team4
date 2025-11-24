@@ -20,7 +20,7 @@ public class FunctionDispatcher
         _executor = executor;
         _methodMap = new Dictionary<string, MethodInfo>();
 
-        var methods = executor.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        var methods = executor.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public);
 
         foreach (var method in methods)
         {

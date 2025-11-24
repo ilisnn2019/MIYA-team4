@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using System.Linq;
 
 public class CommandExecutor : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class CommandExecutor : MonoBehaviour
 
     public void SetConfiguration(EntityPack epack, TexturePack tpack)
     {
-        foreach(var espec in epack.entitySpec)
+        foreach(var espec in epack.entities)
         {
             type_entity_pair[espec.entityType] = espec.prefab;
         }
@@ -64,28 +65,26 @@ public class CommandExecutor : MonoBehaviour
         dispatcher.Dispatch(json, OnCommandExcuteCallback);
     }
 
+    // ===============================
+    //  available function
+    // ===============================
     public void create_object(string object_type, string id)
     {
         string type = StringUtils.ToLowerSafe(object_type);
 
-        // ī�޶� ����
         Transform cam = Camera.main.transform;
         Ray ray = new Ray(cam.position, cam.forward);
         Vector3 spawnPosition = new();
 
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
         {
-            // �浹 ������ ��ġ
+
             spawnPosition = hit.point;
         }
         else
         {
-            // �浹 ������ ī�޶� �� maxDistance ��ġ
             spawnPosition = cam.position + cam.forward * maxDistance;
         }
-
-        // �� ������Ʈ ����
-        //prefab���� ��ȯ
 
 
         if (!type_entity_pair.TryGetValue(object_type, out GameObject value))
@@ -99,14 +98,12 @@ public class CommandExecutor : MonoBehaviour
         instanceObject.transform.position = moveAssist.FindSafeSpawnPosition(instanceObject, spawnPosition);
 
         var mr = instanceObject.GetComponent<MeshRenderer>();
-        StartCoroutine(AnimateCutoff(mr.materials[0], 1.2f, -1.2f)); // ���� lerp
+        StartCoroutine(AnimateCutoff(mr.materials[0], 1.2f, -1.2f));
 
-        // ������ ������Ʈ�� ���۷��� �߰� (������Ʈ���� ���)
         EntityInfoAgent agent = instanceObject.GetComponent<EntityInfoAgent>();
-        string rid = registry.Register(id, agent);
-        agent.Initialize(rid);
+        agent.Initialize(id);
 
-        instanceObject.name = object_type + "_" + rid;
+        instanceObject.name = object_type + "_" + id;
 
         storage.RegisterCreate(agent);
 
@@ -165,7 +162,7 @@ public class CommandExecutor : MonoBehaviour
     {
         ApplyToObject(target, reference =>
         {
-            if (ColorUtility.TryParseHtmlString(color, out Color parsedColor))
+            if (UnityEngine.ColorUtility.TryParseHtmlString(color, out Color parsedColor))
             {
                 float Adjust(float channel) =>
                     Mathf.Clamp01(channel + brightness);
@@ -191,7 +188,7 @@ public class CommandExecutor : MonoBehaviour
                     )
                 );
 
-                string hex = $"#{ColorUtility.ToHtmlStringRGB(result)}";
+                string hex = $"#{UnityEngine.ColorUtility.ToHtmlStringRGB(result)}";
                 reference.UpdateProperty("color", hex);
 
                 storage.RegisterUpdate(reference);
@@ -277,66 +274,187 @@ public class CommandExecutor : MonoBehaviour
 
     }
 
-    public SkyboxShaderController skyController;
+    #region hand-free vr function
+    [Header("Use only for hand-free VR")]
+    public Transform instantiatePosition;
+    List<EntityInfoAgent> selected_agents = new();
 
-    public void change_time(string target, float time)
+    public void create(string object_type)
     {
-        StartCoroutine(ChangeTimeSmoothly(time));
-        ApplyToObject(target, reference =>
+        string type = StringUtils.ToLowerSafe(object_type);
+
+        GameObject go = null;
+
+        switch (type)
         {
-            string hex = $"#{ColorUtility.ToHtmlStringRGB(skyController.GetCurrentSkyColor())}";
-            reference.UpdateProperty("color",hex);
-        });
+            case "cube":
+                go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                break;
 
-    }
+            case "cylinder":
+                go = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                break;
 
-    private IEnumerator ChangeTimeSmoothly(float targetTime)
-    {
-        float current = skyController.minute;
+            case "sphere":
+                go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                break;
 
-        float diff = targetTime - current;
-        if (Mathf.Abs(diff) > 720f) // 12�ð�(720��) �̻� ���̸� �ݴ� �������� ��
-        {
-            if (diff > 0) current += 1440f;
-            else targetTime += 1440f;
-            diff = targetTime - current;
+            default:
+                go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                return;
         }
 
-        float totalDiff = Mathf.Abs(diff);
-        float duration = Mathf.Lerp(0.5f, 10f, Mathf.Clamp01(totalDiff / 720f));
-        float elapsed = 0f;
+        // 위치/기본 설정
+        go.transform.position = instantiatePosition.position;      // 필요 시 파라미터로 변경 가능
+        go.transform.localScale = Vector3.one;
 
-        float start = current;
-        float end = targetTime;
+        // 생성된 객체가 EntityInfoAgent를 가지면 자동 등록
+        var agent = go.GetComponent<EntityInfoAgent>();
+        agent.Initialize("");
+    }
 
-        while (elapsed < duration)
+    public void select_all()
+    {
+        selected_agents.Clear();
+        selected_agents = registry.GetAllAgents().ToList();
+    }
+
+    public void select(string object_type)
+    {
+        string type = StringUtils.ToLowerSafe(object_type);
+        selected_agents.Clear();
+        foreach (var agent in registry.GetAllAgents())
         {
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / duration);
-            float newMinute = Mathf.Lerp(start, end, t);
+            if (agent.Info.type.Equals(type)) selected_agents.Add(agent);
+        }
+    }
 
-            skyController.minute = newMinute % 1440f;
-            skyController.ApplyToMaterial();
+    private readonly Dictionary<string, string> ColorNameToHex = new()
+    {
+        { "white", "#FFFFFF" },
+        { "black", "#000000" },
+        { "red", "#FF0000" },
+        { "green", "#00FF00" },
+        { "blue", "#0000FF" },
+        { "yellow", "#FFFF00" },
+        { "cyan", "#00FFFF" },
+        { "magenta", "#FF00FF" },
+        { "gray", "#808080" },
+    };
 
-            yield return null; // �����Ӹ��� ����
+    public void select(string object_type, string color)
+    {
+        string type = StringUtils.ToLowerSafe(object_type);
+        string targetHex = GetHexFromName(color);
+
+        if (targetHex == null)
+        {
+            Debug.LogWarning($"Unknown color name: {color}");
+            return;
         }
 
-        skyController.minute = targetTime % 1440f;
-        skyController.ApplyToMaterial();
+        selected_agents.Clear();
+
+        foreach (var agent in registry.GetAllAgents())
+        {
+            if (agent.Info.type.Equals(type) &&
+                agent.Info.color.Equals(targetHex, StringComparison.OrdinalIgnoreCase))
+            {
+                selected_agents.Add(agent);
+            }
+        }
     }
 
-
-    public SeaController seaController;
-
-    public void change_sea_color(string target, string color)
+    private string GetHexFromName(string name)
     {
-        ColorUtility.TryParseHtmlString(color, out Color parsedColor);
-        seaController.ChangeSeaColor(parsedColor);
-        ApplyToObject(target, reference => {
-            reference.UpdateProperty("color", color);
-        });
+        name = StringUtils.ToLowerSafe(name);
+        return ColorNameToHex.TryGetValue(name, out var hex) ? hex : null;
     }
 
+    public void move_to_sphere(string object_type)
+    {
+        string type = StringUtils.ToLowerSafe(object_type);
+        Vector3 spherePosition = Vector3.zero;
+        foreach (var agent in registry.GetAllAgents())
+        {
+            if (agent.Info.type.Equals("sphere"))
+            {
+                spherePosition = agent.transform.position;
+                break;
+            }
+        }
+        foreach(var agent in selected_agents)
+        {
+            agent.transform.position = spherePosition;
+        }
+    }
+    public void arrange(string mode)
+    {
+        mode = StringUtils.ToLowerSafe(mode);
+
+        switch (mode)
+        {
+            case "row":
+                ArrangeRow();
+                break;
+
+            case "matrix":
+                ArrangeMatrix();
+                break;
+
+            case "circle":
+                ArrangeCircle();
+                break;
+
+            default:
+                Debug.LogWarning($"Unknown arrange mode: {mode}");
+                break;
+        }
+    }
+    private void ArrangeRow()
+    {
+        float spacing = 2f; // 간격
+
+        for (int i = 0; i < selected_agents.Count; i++)
+        {
+            var agent = selected_agents[i];
+            agent.transform.position = new Vector3(i * spacing, 0, 0) + instantiatePosition.position;
+        }
+    }
+    private void ArrangeMatrix()
+    {
+        int count = selected_agents.Count;
+        int columns = Mathf.CeilToInt(Mathf.Sqrt(count));
+        int rows = Mathf.CeilToInt(count / (float)columns);
+
+        float spacing = 2f;
+
+        for (int i = 0; i < count; i++)
+        {
+            var agent = selected_agents[i];
+
+            int row = i / columns;
+            int col = i % columns;
+
+            agent.transform.position = new Vector3(col * spacing, 0, row * spacing) + instantiatePosition.position;
+        }
+    }
+    private void ArrangeCircle()
+    {
+        int count = selected_agents.Count;
+        float radius = 5f;
+
+        for (int i = 0; i < count; i++)
+        {
+            float angle = i * Mathf.PI * 2f / count;
+
+            float x = Mathf.Cos(angle) * radius;
+            float z = Mathf.Sin(angle) * radius;
+
+            selected_agents[i].transform.position = new Vector3(x, 0, z) + instantiatePosition.position;
+        }
+    }
+    #endregion
     // ----------- Util Func ------------
 
     private T GetOrAdd<T>(GameObject obj) where T : Component

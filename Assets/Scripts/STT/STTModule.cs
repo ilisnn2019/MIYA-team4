@@ -32,7 +32,7 @@ public class STTModule : MonoBehaviour
 
     [Tooltip("Unity Event that delivers the string value returned after STT.")]
     public UnityEvent<string> _onSTTResponseCallback;
-
+    public UnityEvent _onSTTResponseErrorHandler;
     [TextArea(3, 10)]
     [SerializeField] private string _lastResponse = "";
 
@@ -78,6 +78,7 @@ public class STTModule : MonoBehaviour
         {
             Debug.LogError("Bad STT");
             _lastResponse = "<Bad STT Response>";
+            _onSTTResponseErrorHandler?.Invoke();
             return;
         }
 

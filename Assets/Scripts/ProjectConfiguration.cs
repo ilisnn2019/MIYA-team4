@@ -28,9 +28,9 @@ public class ProjectConfiguration : MonoBehaviour
         string promptText = File.ReadAllText(promptPath, Encoding.UTF8);
 
         string objectTypes = "(none)";
-        if (objectListFile != null && objectListFile.entitySpec != null && objectListFile.entitySpec.Count > 0)
+        if (objectListFile != null && objectListFile.entities != null && objectListFile.entities.Count > 0)
         {
-            objectTypes = string.Join("\n", objectListFile.entitySpec.Select(e => e.entityType));
+            objectTypes = string.Join("\n", objectListFile.entities.Select(e => e.entityType));
         }
 
         string textures = "(none)";
@@ -71,7 +71,7 @@ public class ProjectConfiguration : MonoBehaviour
 
         foreach (var entity in entities)
         {
-            entity.Initialize(registry.Register("", entity));
+            entity.Initialize("");
         }
 
         executor.SetConfiguration(objectListFile, textureListFile);    

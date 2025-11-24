@@ -8,6 +8,8 @@ public class SpawnNearFacing : MonoBehaviour
     public GameObject testPrefab;      // 테스트용 프리팹
     public LayerMask surfaceMask;
     public LayerMask objectMask;
+    [Tooltip("Use when environment is not Terrain")]
+    public Vector3 defaultHeight;
 
     [Header("Gizmo Debug")]
     public bool drawGizmos = true;
@@ -127,7 +129,7 @@ public class SpawnNearFacing : MonoBehaviour
         if (terrain == null)
         {
             Debug.LogWarning("[FindGroundSurfacePoint] Scene에 Terrain이 없습니다.");
-            return startPos;
+            return startPos + defaultHeight;
         }
 
         //  Terrain 높이 샘플
