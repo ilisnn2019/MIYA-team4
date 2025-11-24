@@ -314,19 +314,7 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: Create
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
@@ -340,6 +328,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:color:#ffffff
           m_BoolArgument: 0
         m_CallState: 2
   OnStepNarrationDone:
@@ -5743,11 +5743,14 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
+      m_Calls: []
+  OnStepFinished:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: Create
-        m_Mode: 5
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5756,13 +5759,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnStepFinished:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: RemoveAllEntity
-        m_Mode: 1
+        m_MethodName: Create
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5960,6 +5960,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:color:#ffffff
           m_BoolArgument: 0
         m_CallState: 2
   OnStepNarrationDone:
@@ -6702,19 +6714,7 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: Create
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
@@ -6728,6 +6728,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:color:#ff0000:position:2,0,-2:type:cylinder:position:0,0,0:color:#ffffff:type:cylinder:position:-2,0,2:color:#ffffff:type:cylinder:position:-2,0,-2:color:#ffffff
           m_BoolArgument: 0
         m_CallState: 2
   OnStepNarrationDone:
@@ -6955,19 +6967,7 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: Create
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
@@ -6981,6 +6981,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:position:2,0,0:color:#ff0000:type:sphere:position:-2,0,0:color:#00ff00
           m_BoolArgument: 0
         m_CallState: 2
   OnStepNarrationDone:
@@ -7082,19 +7094,7 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: Create
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
@@ -7108,6 +7108,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:cylinder:color:#ffffff
           m_BoolArgument: 0
         m_CallState: 2
   OnStepNarrationDone:
@@ -7294,6 +7306,164 @@ MonoBehaviour:
     checkDistinctColors: 0
     distinctColors: []
   geometricTolerance: 0.5
+--- !u!1001 &1313418267
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991236065037209273, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067223625401382575, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ebe682b6b0de80047b69822d275b0b78, type: 3}
+    - target: {fileID: 7640002620677137353, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_Name
+      value: MicrophoneUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130498554484655904, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 97e2c552297f43d46be135a388287283, type: 3}
+    m_RemovedComponents:
+    - {fileID: 791219031353499382, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7640002620677137353, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1313418271}
+  m_SourcePrefab: {fileID: 100100000, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+--- !u!1 &1313418268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7640002620677137353, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+  m_PrefabInstance: {fileID: 1313418267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1313418269 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4067223625401382575, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+  m_PrefabInstance: {fileID: 1313418267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1313418270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9130498554484655904, guid: bb1c3d43fe98e004bbb290ae973fc150, type: 3}
+  m_PrefabInstance: {fileID: 1313418267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1313418271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313418268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60da556b0f3e26446abea21e8fc44d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  i_image: {fileID: 1313418270}
+  i_microphone: {fileID: 21300000, guid: 97e2c552297f43d46be135a388287283, type: 3}
+  i_thinking: {fileID: 21300000, guid: 73eb46bbbbf0e2b48a6f9c9014a849b5, type: 3}
+  i_check: {fileID: 0}
+  v_image: {fileID: 1313418269}
+  volumeSprites:
+  - {fileID: 21300000, guid: ebe682b6b0de80047b69822d275b0b78, type: 3}
+  - {fileID: 21300000, guid: 80f9b406412687647830115c280e3fb3, type: 3}
+  - {fileID: 21300000, guid: 73305d5b003e3eb478524472d2cb9eb3, type: 3}
+  - {fileID: 21300000, guid: 8107563e5a60d4d48a95f1c563a57341, type: 3}
 --- !u!1 &1314641224
 GameObject:
   m_ObjectHideFlags: 0
@@ -8195,19 +8365,7 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: Create
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
@@ -8221,6 +8379,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:color:#ff0000
           m_BoolArgument: 0
         m_CallState: 2
   OnStepNarrationDone:
@@ -8331,19 +8501,7 @@ MonoBehaviour:
   uiImage: {fileID: 0}
   OnStepStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: Create
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
@@ -8357,6 +8515,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:cube:color:#ffffff
           m_BoolArgument: 0
         m_CallState: 2
   OnStepNarrationDone:
@@ -28832,6 +29002,7 @@ SceneRoots:
   - {fileID: 253405636}
   - {fileID: 6021192937439796713}
   - {fileID: 849221076}
+  - {fileID: 1313418267}
   - {fileID: 278669299}
   - {fileID: 690796378}
   - {fileID: 528225624}

@@ -19,6 +19,9 @@ public class VoiceRecorder
     private float maxTimer = 0f;
     private int sampleSize = 256;
 
+    // 외부에서 접근 가능한 현재 볼륨 (0~1 범위)
+    public static float CurrentVolume { get; private set; } = 0f;
+
     public event Action OnRecordingStopped;
 
     public VoiceRecorder()
@@ -52,32 +55,28 @@ public class VoiceRecorder
                 yield break;
 
             int position = Microphone.GetPosition(null);
-            if (position < sampleSize) continue;
+            if (position < sampleSize)
+                continue;
 
             recordedClip.GetData(samples, position - sampleSize);
 
-            bool hasSound = false;
-            foreach (float sample in samples)
-            {
-                if (Mathf.Abs(sample) > SILENCE_THRESHOLD)
-                {
-                    hasSound = true;
-                    break;
-                }
-            }
+            // 볼륨 계산
+            float sum = 0f;
+            for (int i = 0; i < samples.Length; i++)
+                sum += samples[i] * samples[i];
+            float rms = Mathf.Sqrt(sum / samples.Length);
+            CurrentVolume = Mathf.Clamp01(rms * 10f); // 감도 보정 (임의 배수)
+
+            bool hasSound = rms > SILENCE_THRESHOLD;
+
+            if (hasSound)
+                silenceTimer = 0f;
+            else
+                silenceTimer += 0.1f;
 
             maxTimer += 0.1f;
 
-            if (hasSound)
-            {
-                silenceTimer = 0f;
-            }
-            else
-            {
-                silenceTimer += 0.1f;
-            }
-
-            GText.PrintState($"Record Voice, silence timer : {silenceTimer}");
+            GText.PrintState($"Record Voice, silence timer : {silenceTimer}, vol : {CurrentVolume:F2}");
 
             if (silenceTimer >= SILENCE_DURATION || maxTimer >= 15f)
             {
@@ -101,11 +100,13 @@ public class VoiceRecorder
         Microphone.End(null);
         Debug.Log("<color=cyan>[VoiceRecord]</color> Recording stopped. Saving...");
 
-        //무음 제거 후 WAV 저장
+        // 볼륨 리셋
+        CurrentVolume = 0f;
+
+        // 무음 제거 후 WAV 저장
         var trimmed = SaveWav.TrimSilence(recordedClip, SILENCE_THRESHOLD);
         byte[] wavData = SaveWav.Save(Path.GetFileName(filePath), trimmed);
 
-        // 파일 저장
         File.WriteAllBytes(filePath, wavData);
         Debug.Log("<color=cyan>[VoiceRecord]</color> Saved to: " + filePath);
 
