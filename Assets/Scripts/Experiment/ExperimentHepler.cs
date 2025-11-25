@@ -55,6 +55,12 @@ public class ExperimentHepler : MonoBehaviour
             {
                 object parsedValue = ParseValue(currentProperty, token);
                 UpdateProperty(currentAgent, currentProperty, parsedValue);
+
+                // 영교 - 여기 이벤트 호출 하나 추가했습니다
+                if (EventsManager.instance != null)
+                {
+                    EventsManager.instance.conditionEvents.SpawnedObject(currentAgent);
+                }
             }
 
             currentProperty = null;
