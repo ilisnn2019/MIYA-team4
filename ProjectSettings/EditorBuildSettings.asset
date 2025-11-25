@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/VR_NLP.unity
     guid: 55ca64e0792385a4bab0c08f318f9a1b
   m_configObjects:
