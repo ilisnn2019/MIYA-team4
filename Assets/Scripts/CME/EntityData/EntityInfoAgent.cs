@@ -1,7 +1,11 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class EntityInfoAgent : MonoBehaviour
 {
     [SerializeField] private EntityInfo objectInfo = new();
@@ -136,6 +140,7 @@ public class EntityInfoAgent : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(EntityInfoAgent))]
 public class EntityInfoAgentEditor : Editor
 {
@@ -150,3 +155,4 @@ public class EntityInfoAgentEditor : Editor
         }
     }
 }
+#endif

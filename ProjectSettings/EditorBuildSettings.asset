@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/VR_NLP.unity
-    guid: 55ca64e0792385a4bab0c08f318f9a1b
+  - enabled: 1
+    path: Assets/Scenes/Experiment.unity
+    guid: bde73ac5ed32e7e4993c8105cd34499a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5b4e42ce7cf2ae04391725e1a5d184c5, type: 2}
     Varjo.XR.Settings: {fileID: 11400000, guid: e9a472f2d2608db458bd99faef0c943b, type: 2}

@@ -283,26 +283,7 @@ public class CommandExecutor : MonoBehaviour
     {
         string type = StringUtils.ToLowerSafe(object_type);
 
-        GameObject go = null;
-
-        switch (type)
-        {
-            case "cube":
-                go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                break;
-
-            case "cylinder":
-                go = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                break;
-
-            case "sphere":
-                go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                break;
-
-            default:
-                go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                return;
-        }
+        GameObject go = Instantiate(type_entity_pair[type]);
 
         // 위치/기본 설정
         go.transform.position = instantiatePosition.position;      // 필요 시 파라미터로 변경 가능

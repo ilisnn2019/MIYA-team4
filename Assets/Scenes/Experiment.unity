@@ -4667,7 +4667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: prompt_name
-      value: exp_prompt
+      value: MIYA_prompt
       objectReference: {fileID: 0}
     - target: {fileID: 4303148974527459168, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: m_Name
