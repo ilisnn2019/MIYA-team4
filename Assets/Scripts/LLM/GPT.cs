@@ -6,10 +6,8 @@ using System.Text.RegularExpressions;
 using NAudio.CoreAudioApi;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Networking;
-using static UnityEditor.ShaderData;
 
 #region Data Models
 

@@ -1,5 +1,7 @@
-using UnityEngine;
+#if UNITY_EDITOR    
 using UnityEditor;
+using UnityEngine;
+
 using UnityEngine.Networking;
 using Newtonsoft.Json.Linq;
 using System.Text;
@@ -226,3 +228,4 @@ public class PromptCacheTesterWindow : EditorWindow
         Repaint();
     }
 }
+#endif

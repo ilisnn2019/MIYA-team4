@@ -6,9 +6,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
-using UnityEditor;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ProjectConfiguration : MonoBehaviour
 {
@@ -22,6 +25,7 @@ public class ProjectConfiguration : MonoBehaviour
     public TexturePack textureListFile; // 텍스쳐 리스트가 적힌 외부 파일  -> scriptableobject로 변경
     public string newPromptName;
 
+#if UNITY_EDITOR
     public void UpdatePromptFile()
     {
         string promptPath = AssetDatabase.GetAssetPath(promptFile);
@@ -58,7 +62,7 @@ public class ProjectConfiguration : MonoBehaviour
 
         Debug.Log($"Prompt file updated at: {promptPath}");
     }
-
+#endif
     [SerializeField]
     private EntityInfoAgent[] entities;
 
@@ -78,7 +82,7 @@ public class ProjectConfiguration : MonoBehaviour
     }
 
 }
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(ProjectConfiguration))]
 public class ProjectConfigurationEditor : Editor
 {
@@ -162,3 +166,4 @@ public class ProjectConfigurationEditor : Editor
         GUILayout.Space(5);
     }
 }
+#endif
