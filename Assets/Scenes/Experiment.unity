@@ -425,9 +425,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: EndTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: RemoveAllEntity
@@ -1156,9 +1180,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: EndTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartEntireTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: RemoveAllEntity
@@ -1419,9 +1479,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: EndTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: RemoveAllEntity
@@ -2141,6 +2225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798774167}
   - component: {fileID: 798774166}
+  - component: {fileID: 798774168}
   m_Layer: 0
   m_Name: ExperimentHelper
   m_TagString: Untagged
@@ -2177,6 +2262,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &798774168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798774165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d74a6efc92b2cb46ace03849e0ff397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &849221076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2565,9 +2662,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: EndTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: RemoveAllEntity
@@ -2996,9 +3117,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: EndTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: RemoveAllEntity
@@ -3159,9 +3304,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: EndTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: RemoveAllEntity
@@ -3320,9 +3489,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartEntireTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: EndTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: RemoveAllEntity
@@ -3933,9 +4138,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: EndTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: RemoveAllEntity
@@ -4285,9 +4514,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: EndTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: RemoveAllEntity
@@ -4525,9 +4778,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: StartTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStepFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 798774168}
+        m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
+        m_MethodName: EndTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: RemoveAllEntity
@@ -4669,6 +4946,86 @@ PrefabInstance:
       propertyPath: prompt_name
       value: MIYA_prompt
       objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 798774168}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1885791772}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 798774168}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 6021192937439796714}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndSTT
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnStartDetecting
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StartSTT
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: Dispatcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ExpermientDataReaper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: VoiceDetector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ExpermientDataReaper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: CommandExecutor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4303148974527459168, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: m_Name
       value: MIYA
@@ -4680,6 +5037,78 @@ PrefabInstance:
     - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: skyController
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 798774168}
+    - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndSTT
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ExpermientDataReaper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 798774168}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 6021192937439796715}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartSTT
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StartRecording
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ExpermientDataReaper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: STTModule, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6157472037961514147, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4767,22 +5196,62 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 798774168}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 798774168}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: EndSTT
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StartSTT
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1885791772}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 798774168}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
@@ -4790,11 +5259,43 @@ PrefabInstance:
       value: OnStartDetecting
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: EndSTT
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ExpermientDataReaper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ExpermientDataReaper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: VoiceDetector, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ExpermientDataReaper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4802,6 +5303,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+--- !u!114 &6021192937439796714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+  m_PrefabInstance: {fileID: 6021192937439796713}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6857f79886ac0a84d8b22cdbb0527ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6021192937439796715 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+  m_PrefabInstance: {fileID: 6021192937439796713}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de047a55c7d72646aa22988ab7c5ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

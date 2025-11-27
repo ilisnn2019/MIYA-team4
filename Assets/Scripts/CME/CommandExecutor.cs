@@ -7,6 +7,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using System.Linq;
+using UnityEngine.Events;
 
 public class CommandExecutor : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class CommandExecutor : MonoBehaviour
     private Light sun = new();
 
     public float maxDistance = 5f;
-    public Action OnCommandExcuteCallback;
+    public UnityEvent OnCommandExcuteCallback;
 
     private readonly Dictionary<string, GameObject> type_entity_pair = new();
     private readonly Dictionary<string, Texture> name_texture_pair = new();
@@ -62,7 +63,7 @@ public class CommandExecutor : MonoBehaviour
 
     public void Dispatcher(string json)
     {
-        dispatcher.Dispatch(json, OnCommandExcuteCallback);
+        dispatcher.Dispatch(json, () => { OnCommandExcuteCallback?.Invoke(); });
     }
 
     // ===============================

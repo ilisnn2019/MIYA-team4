@@ -25,7 +25,7 @@ public class WhisperSTT : ISTT
     [ContextMenu("Call STT")]
     public void SpeechtoText(Action<string> callback)
     {
-        filePath = Path.Combine(Application.dataPath, "Personals/audio.wav");
+        filePath = Path.Combine(Application.dataPath, "Resources/audio.wav");
         UnityMainThreadDispatcher.Instance().Enqueue(UploadAudioAndGetText(callback));
     }
 
