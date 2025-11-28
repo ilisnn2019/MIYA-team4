@@ -1,55 +1,91 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.IO;
 using UnityEngine;
 
+[Serializable]
+public class STTRecord
+{
+    public long time;
+    public string result;
+}
+
+[Serializable]
+public class TaskRecord
+{
+    public long taskTime;
+    public List<STTRecord> sttRecords = new List<STTRecord>();
+}
+
+[Serializable]
+public class ExperimentData
+{
+    public long entireTaskTime;
+    public List<TaskRecord> tasks = new List<TaskRecord>();
+}
+
 public class ExpermientDataReaper : MonoBehaviour
 {
-    enum DATA_LABEL
-    {
-        STT, TASK, ENTIRE_TASK
-    }
+    enum DATA_LABEL { STT, TASK, ENTIRE_TASK }
 
     Dictionary<DATA_LABEL, Stopwatch> timers = new();
 
     private string logFilePath;
-    private string content = "";
-    private string date = "";
+    private ExperimentData experimentData;
+
+    private TaskRecord currentTask;
+    private STTRecord currentSTT;
+
     private void Start()
     {
-        date = $"{DateTime.Now:yyyy-MM-dd_HH-mm-ss}";
-        logFilePath = Path.Combine(Application.persistentDataPath, $"Experiment-{date}.txt");
+        string date = $"{DateTime.Now:yyyy-MM-dd_HH-mm-ss}";
+        logFilePath = Path.Combine(Application.persistentDataPath, $"Experiment-{date}.json");
 
-        timers = new() { { DATA_LABEL.STT, new Stopwatch() }, { DATA_LABEL.TASK, new Stopwatch() }, { DATA_LABEL.ENTIRE_TASK, new Stopwatch() } };
+        timers = new()
+        {
+            { DATA_LABEL.STT, new Stopwatch() },
+            { DATA_LABEL.TASK, new Stopwatch() },
+            { DATA_LABEL.ENTIRE_TASK, new Stopwatch() }
+        };
+
+        experimentData = new ExperimentData();
     }
 
-    private bool isSTT = false;
+    // =============================
+    //      STT
+    // =============================
 
-    public void StartSTT()
+    public void StartSTT(string sttResult)
     {
-        if (!isSTT) { content += "("; isSTT = true; }
+        currentSTT = new STTRecord();
+        currentSTT.result = sttResult;
+
         timers[DATA_LABEL.STT].Reset();
         timers[DATA_LABEL.STT].Start();
     }
 
-    public void EndSTT(bool isEnd = false)
+    public void EndSTT()
     {
         var sw = timers[DATA_LABEL.STT];
         if (sw.IsRunning)
         {
             sw.Stop();
-            long ms = sw.ElapsedMilliseconds;
-            content += ms;
+            currentSTT.time = sw.ElapsedMilliseconds;
         }
-        if (!isEnd) content += ",";
-        else { content += "),"; isSTT = false;  }
+
+        currentTask.sttRecords.Add(currentSTT);
+        currentSTT = null;
     }
+
+    // =============================
+    //      Task
+    // =============================
 
     public void StartTask()
     {
-        content += "(\n";
+        currentTask = new TaskRecord();
+
         timers[DATA_LABEL.TASK].Reset();
         timers[DATA_LABEL.TASK].Start();
     }
@@ -60,32 +96,45 @@ public class ExpermientDataReaper : MonoBehaviour
         if (sw.IsRunning)
         {
             sw.Stop();
-            long ms = sw.ElapsedMilliseconds;
-            content += ms;
+            currentTask.taskTime = sw.ElapsedMilliseconds;
         }
-        content += "),";
+
+        experimentData.tasks.Add(currentTask);
+        currentTask = null;
     }
+
+    // =============================
+    //      Entire Task
+    // =============================
 
     public void StartEntireTask()
     {
-        content += "(\n";
         timers[DATA_LABEL.ENTIRE_TASK].Reset();
         timers[DATA_LABEL.ENTIRE_TASK].Start();
     }
+
     public void EndEntireTask()
     {
         var sw = timers[DATA_LABEL.ENTIRE_TASK];
         if (sw.IsRunning)
         {
             sw.Stop();
-            long ms = sw.ElapsedMilliseconds;
-            content += ms;
+            experimentData.entireTaskTime = sw.ElapsedMilliseconds;
         }
-        content += ")";
 
+        SaveData();
+    }
+
+    // =============================
+    //      SAVE
+    // =============================
+
+    private void SaveData()
+    {
         try
         {
-            File.WriteAllText(logFilePath, content);
+            string json = JsonUtility.ToJson(experimentData, true);
+            File.WriteAllText(logFilePath, json);
             UnityEngine.Debug.Log($"Experiment data saved to: {logFilePath}");
         }
         catch (Exception e)
@@ -93,5 +142,4 @@ public class ExpermientDataReaper : MonoBehaviour
             UnityEngine.Debug.LogError($"Failed to save experiment data: {e.Message}");
         }
     }
-
 }

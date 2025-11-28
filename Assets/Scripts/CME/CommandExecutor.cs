@@ -278,7 +278,7 @@ public class CommandExecutor : MonoBehaviour
     #region hand-free vr function
     [Header("Use only for hand-free VR")]
     public Transform instantiatePosition;
-    List<EntityInfoAgent> selected_agents = new();
+    [SerializeField]List<EntityInfoAgent> selected_agents = new();
 
     public void create(string object_type)
     {
@@ -291,7 +291,7 @@ public class CommandExecutor : MonoBehaviour
         go.transform.localScale = Vector3.one;
 
         // 생성된 객체가 EntityInfoAgent를 가지면 자동 등록
-        var agent = go.GetComponent<EntityInfoAgent>();
+        EntityInfoAgent agent = go.GetComponent<EntityInfoAgent>();
         agent.Initialize("");
     }
 

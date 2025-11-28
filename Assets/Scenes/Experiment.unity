@@ -452,18 +452,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: RemoveAllEntity
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -902,6 +890,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:cylinder:color:#ffffff
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 5
         m_Arguments:
@@ -912,7 +912,7 @@ MonoBehaviour:
           m_StringArgument: type:cylinder:color:#ffffff
           m_BoolArgument: 0
         m_CallState: 2
-  time: 2
+  time: 3
   alphaTime: 0
 --- !u!1 &278669298
 GameObject:
@@ -1001,6 +1001,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:color:#ff0000:position:2,0,-2:type:cylinder:position:0,0,0:color:#ffffff:type:cylinder:position:-2,0,2:color:#ffffff:type:cylinder:position:-2,0,-2:color:#ffffff
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 5
         m_Arguments:
@@ -1011,7 +1023,7 @@ MonoBehaviour:
           m_StringArgument: type:sphere:color:#ff0000:position:2,0,-2:type:cylinder:position:0,0,0:color:#ffffff:type:cylinder:position:-2,0,2:color:#ffffff:type:cylinder:position:-2,0,-2:color:#ffffff
           m_BoolArgument: 0
         m_CallState: 2
-  time: 2
+  time: 3
   alphaTime: 0
 --- !u!1 &310779999
 GameObject:
@@ -1069,6 +1081,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:color:#ffffff
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 5
         m_Arguments:
@@ -1079,8 +1103,39 @@ MonoBehaviour:
           m_StringArgument: type:sphere:color:#ffffff
           m_BoolArgument: 0
         m_CallState: 2
-  time: 2
+  time: 3
   alphaTime: 0
+--- !u!1 &363978442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 363978443}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &363978443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363978442}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &376803223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,18 +1552,6 @@ MonoBehaviour:
       - m_Target: {fileID: 798774168}
         m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
         m_MethodName: EndTask
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: RemoveAllEntity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2003,6 +2046,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:position:2,0,0:color:#ff0000:type:sphere:position:-2,0,0:color:#00ff00
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 5
         m_Arguments:
@@ -2013,7 +2068,7 @@ MonoBehaviour:
           m_StringArgument: type:sphere:position:2,0,0:color:#ff0000:type:sphere:position:-2,0,0:color:#00ff00
           m_BoolArgument: 0
         m_CallState: 2
-  time: 2
+  time: 3
   alphaTime: 0
 --- !u!1 &674071002
 GameObject:
@@ -2483,6 +2538,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:position:0,0,0:color:#FF0000:type:cylinder:position:1,0,1:color:#0000ff
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 5
         m_Arguments:
@@ -2493,7 +2560,7 @@ MonoBehaviour:
           m_StringArgument: type:sphere:position:0,0,0:color:#FF0000:type:cylinder:position:1,0,1:color:#0000ff
           m_BoolArgument: 0
         m_CallState: 2
-  time: 2
+  time: 3
   alphaTime: 0
 --- !u!1 &1006763209
 GameObject:
@@ -2551,6 +2618,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:position:0,0,0:color:#ff0000
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 5
         m_Arguments:
@@ -2561,7 +2640,7 @@ MonoBehaviour:
           m_StringArgument: type:sphere:position:0,0,0:color:#ff0000
           m_BoolArgument: 0
         m_CallState: 2
-  time: 2
+  time: 3
   alphaTime: 0
 --- !u!1 &1064060253
 GameObject:
@@ -2680,18 +2759,6 @@ MonoBehaviour:
       - m_Target: {fileID: 798774168}
         m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
         m_MethodName: EndTask
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: RemoveAllEntity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2866,6 +2933,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:cube:color:#ffffff
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 5
         m_Arguments:
@@ -2876,7 +2955,7 @@ MonoBehaviour:
           m_StringArgument: type:cube:color:#ffffff
           m_BoolArgument: 0
         m_CallState: 2
-  time: 2
+  time: 3
   alphaTime: 0
 --- !u!1 &1104178043
 GameObject:
@@ -3144,18 +3223,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: RemoveAllEntity
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -3322,18 +3389,6 @@ MonoBehaviour:
       - m_Target: {fileID: 798774168}
         m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
         m_MethodName: EndTask
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: RemoveAllEntity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3519,18 +3574,6 @@ MonoBehaviour:
       - m_Target: {fileID: 798774168}
         m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
         m_MethodName: EndTask
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: RemoveAllEntity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3956,6 +3999,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:color:#ff0000
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 5
         m_Arguments:
@@ -3966,7 +4021,7 @@ MonoBehaviour:
           m_StringArgument: type:sphere:color:#ff0000
           m_BoolArgument: 0
         m_CallState: 2
-  time: 2
+  time: 3
   alphaTime: 0
 --- !u!1 &1666928816
 GameObject:
@@ -4156,18 +4211,6 @@ MonoBehaviour:
       - m_Target: {fileID: 798774168}
         m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
         m_MethodName: EndTask
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: RemoveAllEntity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4541,18 +4584,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: RemoveAllEntity
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnStepNarrationDone:
     m_PersistentCalls:
       m_Calls: []
@@ -4667,6 +4698,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798774166}
         m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
+        m_MethodName: RemoveAllEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: type:sphere:color:#ffffff
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798774166}
+        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 5
         m_Arguments:
@@ -4677,7 +4720,7 @@ MonoBehaviour:
           m_StringArgument: type:sphere:color:#ffffff
           m_BoolArgument: 0
         m_CallState: 2
-  time: 2
+  time: 3
   alphaTime: 0
 --- !u!1 &1958321653
 GameObject:
@@ -4796,18 +4839,6 @@ MonoBehaviour:
       - m_Target: {fileID: 798774168}
         m_TargetAssemblyTypeName: ExpermientDataReaper, Assembly-CSharp
         m_MethodName: EndTask
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 798774166}
-        m_TargetAssemblyTypeName: ExperimentHepler, Assembly-CSharp
-        m_MethodName: RemoveAllEntity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4944,7 +4975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: prompt_name
-      value: MIYA_prompt
+      value: hand_free_prompt
       objectReference: {fileID: 0}
     - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.size
@@ -4952,7 +4983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -4960,7 +4991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3817347482898396228, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _OnResponseReceived.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5039,12 +5070,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: instantiatePosition
+      value: 
+      objectReference: {fileID: 363978443}
+    - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5380627188110523193, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: OnCommandExcuteCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5073,6 +5108,10 @@ PrefabInstance:
     - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
+      propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5383965154591714460, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: onWordDetected.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -5204,11 +5243,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -5224,7 +5263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseErrorHandler.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8742021076982242197, guid: e6360662cfd9475409e50712115eaf98, type: 3}
       propertyPath: _onSTTResponseCallback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -5347,3 +5386,4 @@ SceneRoots:
   - {fileID: 487203936}
   - {fileID: 1072784225}
   - {fileID: 6815707}
+  - {fileID: 363978443}

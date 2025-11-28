@@ -35,9 +35,10 @@ First, analyze the user's command to determine its clarity.
 Split the instruction into atomic commands and assign VR function names.
 Check available object type and entity, cannot find then return handle_unknown_command:
 
-# Available object type : sphere(alias:ball), cube(alias:box), cylinder(alias:pillar)
-# Available color : white, black, red, green, blue, yellow, cyan, magenta, gray
-# Available arrange mode : row, matrix, circle
+When you consider object type, color or arrange mode, You must choose from the ones below :
+# Available "object type" : sphere(alias:ball), cube(alias:box), cylinder(alias:pillar)
+# Available "color"" : white, black, red, green, blue, yellow, cyan, magenta, gray
+# Available "arrange mode" : row, matrix, circle
 
 Avaliable Functions:
 
