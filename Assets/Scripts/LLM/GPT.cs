@@ -6,10 +6,8 @@ using System.Text.RegularExpressions;
 using NAudio.CoreAudioApi;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Networking;
-using static UnityEditor.ShaderData;
 
 #region Data Models
 
@@ -87,7 +85,6 @@ public interface IOpenAI
 public class GPT : IOpenAI
 {
     private readonly string apiKey;
-    private readonly FunctionCollection functionCollection;
     private const string LogTag = "GPT";
     //�ӽ��߰�###########
     private LookObjectSelector lookObjectSelector;
@@ -99,11 +96,10 @@ public class GPT : IOpenAI
     class CachPass : ChatPassExecutor<List<FunctionCall>>
     {
         private readonly IObjectLookUp f_lookup;
-        readonly TextAsset loadPrompt;
+        private TextAsset loadPrompt;
 
         public CachPass(string apiKey, string pname = "prompt") : base(apiKey)
         {
-
             loadPrompt = Resources.Load<TextAsset>(pname);
         }
 
@@ -149,7 +145,6 @@ public class GPT : IOpenAI
     public GPT(AccessKeySO key, string prompt_name = "prompt")
     {
         this.apiKey = key.accessKey;
-        this.functionCollection = new FunctionCollection();
 
         //contextPass = new(apiKey);
         //clarificationPass = new(apiKey);

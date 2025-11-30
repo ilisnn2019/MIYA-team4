@@ -12,8 +12,6 @@ public class ChatManager : MonoBehaviour
     [SerializeField]
     public UnityEvent<string> _OnResponseReceived;
 
-    public bool isActive = true;
-
     public string prompt_name;
 
     private void Start()
@@ -27,11 +25,6 @@ public class ChatManager : MonoBehaviour
     /// <param name="input">stt result</param>
     public void OnSendMessage(string input)
     {
-        if(!isActive)
-        {
-            _OnResponseReceived?.Invoke(""); 
-            return;
-        }
 
         string userMessage = input;
         if (!string.IsNullOrEmpty(userMessage))

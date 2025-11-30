@@ -26,7 +26,7 @@ public class VoiceRecorder
 
     public VoiceRecorder()
     {
-        filePath = Path.Combine(Application.dataPath, "Personals/audio.wav");
+        filePath = Path.Combine(Application.dataPath, "Resources/audio.wav");
     }
 
     public void StartRecording()
