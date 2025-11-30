@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 
+#if UNITY_EDITOR
 public static class UltimateTextureMapper
 {
     // 유니티 에디터 상단 메뉴에 최종 실행 항목을 추가합니다.
@@ -150,3 +151,4 @@ public static class UltimateTextureMapper
         Debug.Log("<color=cyan><b>텍스처 자동 할당 작업이 완료되었습니다.</b></color>");
     }
 }
+#endif
