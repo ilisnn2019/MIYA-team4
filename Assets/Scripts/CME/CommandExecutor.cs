@@ -7,6 +7,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using System.Linq;
+using UnityEngine.Events;
 
 public class CommandExecutor : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class CommandExecutor : MonoBehaviour
     private Light sun = new();
 
     public float maxDistance = 5f;
-    public Action OnCommandExcuteCallback;
+    public UnityEvent OnCommandExcuteCallback;
 
     private readonly Dictionary<string, GameObject> type_entity_pair = new();
     private readonly Dictionary<string, Texture> name_texture_pair = new();
@@ -62,7 +63,7 @@ public class CommandExecutor : MonoBehaviour
 
     public void Dispatcher(string json)
     {
-        dispatcher.Dispatch(json, OnCommandExcuteCallback);
+        dispatcher.Dispatch(json, () => { OnCommandExcuteCallback?.Invoke(); });
     }
 
     // ===============================
@@ -277,39 +278,20 @@ public class CommandExecutor : MonoBehaviour
     #region hand-free vr function
     [Header("Use only for hand-free VR")]
     public Transform instantiatePosition;
-    List<EntityInfoAgent> selected_agents = new();
+    [SerializeField]List<EntityInfoAgent> selected_agents = new();
 
     public void create(string object_type)
     {
         string type = StringUtils.ToLowerSafe(object_type);
 
-        GameObject go = null;
-
-        switch (type)
-        {
-            case "cube":
-                go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                break;
-
-            case "cylinder":
-                go = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                break;
-
-            case "sphere":
-                go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                break;
-
-            default:
-                go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                return;
-        }
+        GameObject go = Instantiate(type_entity_pair[type]);
 
         // 위치/기본 설정
         go.transform.position = instantiatePosition.position;      // 필요 시 파라미터로 변경 가능
         go.transform.localScale = Vector3.one;
 
         // 생성된 객체가 EntityInfoAgent를 가지면 자동 등록
-        var agent = go.GetComponent<EntityInfoAgent>();
+        EntityInfoAgent agent = go.GetComponent<EntityInfoAgent>();
         agent.Initialize("");
     }
 
