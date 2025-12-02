@@ -75,8 +75,10 @@ public class CommandExecutor : MonoBehaviour
 
         Transform cam = Camera.main.transform;
         Ray ray = new Ray(cam.position, cam.forward);
-        Vector3 spawnPosition = new();
 
+        Vector3 spawnPosition = new Vector3(0, 0, 0);
+
+        /* Disable only in experiment
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
         {
 
@@ -86,7 +88,7 @@ public class CommandExecutor : MonoBehaviour
         {
             spawnPosition = cam.position + cam.forward * maxDistance;
         }
-
+        */
 
         if (!type_entity_pair.TryGetValue(object_type, out GameObject value))
         {
@@ -293,6 +295,42 @@ public class CommandExecutor : MonoBehaviour
         // 생성된 객체가 EntityInfoAgent를 가지면 자동 등록
         EntityInfoAgent agent = go.GetComponent<EntityInfoAgent>();
         agent.Initialize("");
+
+
+        if (EventsManager.instance != null)
+        {
+            EventsManager.instance.conditionEvents.SpawnedObject(agent);
+            Debug.Log("생성 이벤트 발생 : " + agent);
+        }
+    }
+
+    public void create_withcolor (string object_type, string color)
+    {
+        string type = StringUtils.ToLowerSafe(object_type);
+
+        GameObject go = Instantiate(type_entity_pair[type]);
+
+        // 위치/기본 설정
+        go.transform.position = instantiatePosition.position;      // 필요 시 파라미터로 변경 가능
+        go.transform.localScale = Vector3.one;
+
+        // 생성된 객체가 EntityInfoAgent를 가지면 자동 등록
+        EntityInfoAgent agent = go.GetComponent<EntityInfoAgent>();
+        agent.Initialize("");
+
+        string targetHex = GetHexFromName(color);
+        UnityEngine.ColorUtility.TryParseHtmlString(color, out Color parsedColor);
+
+        var renderer = agent.GetComponent<MeshRenderer>();
+        renderer.materials[0].SetColor(PROB_COLOR, parsedColor);
+
+        agent.Info.color = targetHex;
+
+        if (EventsManager.instance != null)
+        {
+            EventsManager.instance.conditionEvents.SpawnedObject(agent);
+            Debug.Log("생성 이벤트 발생 : " + agent);
+        }
     }
 
     public void select_all()
@@ -324,7 +362,7 @@ public class CommandExecutor : MonoBehaviour
         { "gray", "#808080" },
     };
 
-    public void select(string object_type, string color)
+    public void select_withcolor(string object_type, string color)
     {
         string type = StringUtils.ToLowerSafe(object_type);
         string targetHex = GetHexFromName(color);
@@ -353,9 +391,8 @@ public class CommandExecutor : MonoBehaviour
         return ColorNameToHex.TryGetValue(name, out var hex) ? hex : null;
     }
 
-    public void move_to_sphere(string object_type)
+    public void move_to_sphere()
     {
-        string type = StringUtils.ToLowerSafe(object_type);
         Vector3 spherePosition = Vector3.zero;
         foreach (var agent in registry.GetAllAgents())
         {
@@ -367,7 +404,8 @@ public class CommandExecutor : MonoBehaviour
         }
         foreach(var agent in selected_agents)
         {
-            agent.transform.position = spherePosition;
+            agent.transform.position = spherePosition + new Vector3(1,0,0);
+            agent.Info.position = agent.transform.position;
         }
     }
     public void arrange(string mode)

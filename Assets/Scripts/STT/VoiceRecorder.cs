@@ -23,10 +23,11 @@ public class VoiceRecorder
     public static float CurrentVolume { get; private set; } = 0f;
 
     public event Action OnRecordingStopped;
+    public event Action OnErrorHandler;
 
     public VoiceRecorder()
     {
-        filePath = Path.Combine(Application.dataPath, "Resources/audio.wav");
+        filePath = Path.Combine(Application.persistentDataPath, "audio.wav");
     }
 
     public void StartRecording()
@@ -56,9 +57,15 @@ public class VoiceRecorder
 
             int position = Microphone.GetPosition(null);
             if (position < sampleSize)
+            {
+                yield return null;
                 continue;
+            }
 
-            recordedClip.GetData(samples, position - sampleSize);
+            // 음수 인덱스를 방지하기 위해 position - sampleSize가 0 미만이면 0으로 설정
+            int startPosition = Mathf.Max(0, position - sampleSize);
+
+            recordedClip.GetData(samples, startPosition);
 
             // 볼륨 계산
             float sum = 0f;
@@ -88,6 +95,7 @@ public class VoiceRecorder
         }
     }
 
+
     public void StopRecording()
     {
         if (!Microphone.IsRecording(null))
@@ -104,7 +112,7 @@ public class VoiceRecorder
         CurrentVolume = 0f;
 
         // 무음 제거 후 WAV 저장
-        var trimmed = SaveWav.TrimSilence(recordedClip, SILENCE_THRESHOLD);
+        var trimmed = SaveWav.TrimSilence(recordedClip, SILENCE_THRESHOLD, OnErrorHandler);
         byte[] wavData = SaveWav.Save(Path.GetFileName(filePath), trimmed);
 
         File.WriteAllBytes(filePath, wavData);

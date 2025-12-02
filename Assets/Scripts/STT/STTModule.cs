@@ -50,6 +50,11 @@ public class STTModule : MonoBehaviour
 #endif
             stt.SpeechtoText(OnSTTResponseReceived);
         };
+
+        _recorder.OnErrorHandler += () =>
+        {
+            _onSTTResponseErrorHandler?.Invoke();
+        };
     }
 
     private void InitSTT()

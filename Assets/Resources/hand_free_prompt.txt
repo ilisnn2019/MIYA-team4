@@ -42,17 +42,20 @@ When you consider object type, color or arrange mode, You must choose from the o
 
 Avaliable Functions:
 
-0. create (object_type: "object type")
-1. select_all()
-2. select (object_type: "object type")
-3. select (object_type: "object type", color : "color")
-4. move_to_sphere (object_type: "object type")
-5. arrange (mode : "arrange mode")
-6. handle_unknown_command (reason: ""text"")
+1. create (object_type: "object type")
+2. create_withcolor (object_type: "object type", color : "color")
+3. select_all()
+4. select (object_type: "object type")
+5. select_withcolor (object_type: "object type", color : "color")
+6. move_to_sphere ()
+7. arrange (mode : "arrange mode")
+8. handle_unknown_command (reason: ""text"")
 
 - Assign the most appropriate function name for each.
 
-- Always include select_object function before ""Change"" object.
+**BEWARE**
+- Only select command (select or select_all) can be chained with other commands and will be executed continuously (e.g., select ¡æ move, select -> arrange).
+- All other commands cannot be chained and must be executed individually.
 
 ---
 

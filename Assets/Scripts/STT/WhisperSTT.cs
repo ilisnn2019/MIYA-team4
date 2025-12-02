@@ -24,7 +24,8 @@ public class WhisperSTT : ISTT
     [ContextMenu("Call STT")]
     public void SpeechtoText(Action<string> callback)
     {
-        filePath = Path.Combine(Application.dataPath, "Resources/audio.wav");
+        filePath = Path.Combine(Application.persistentDataPath, "audio.wav");
+
         UnityMainThreadDispatcher.Instance().Enqueue(UploadAudioAndGetText(callback));
     }
 
@@ -39,7 +40,6 @@ public class WhisperSTT : ISTT
         byte[] audioData = File.ReadAllBytes(filePath);
         LLog.Log(LogType.Log, HEAD, "Audio file size: " + audioData.Length);
 
-        // Whisper ��û ����
         var request = new CreateAudioTranscriptionsRequest
         {
             FileData = new FileData
@@ -52,10 +52,8 @@ public class WhisperSTT : ISTT
             Temperature = 0f          // ������ ����
         };
 
-        // �񵿱� ȣ�� ����
         var task = openai.CreateAudioTranscription(request);
 
-        // ��ٸ�
         while (!task.IsCompleted) yield return null;
 
         if (task.IsFaulted)

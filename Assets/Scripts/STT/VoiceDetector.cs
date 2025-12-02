@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Reflection;
 using Meta.WitAi;
 using Meta.WitAi.CallbackHandlers;
@@ -109,11 +110,13 @@ public class VoiceDetector : MonoBehaviour
         appVoiceExperience.Activate();
     }
 
-    private void OnError(string arg0, string arg1)
+    private void OnError(string error, string message)
     {
-        Debug.LogError("voice detector catch err");
-        appVoiceExperience.DeactivateAndAbortRequest();
-        appVoiceExperience.Activate();
+        Debug.LogError($"[VoiceDetector] Error: {error}");
+        if (!voiceCommandReady)
+        {
+            StartCoroutine(RestartWitRoutine());
+        }
     }
 
     private void OnMicStarted()
@@ -124,15 +127,25 @@ public class VoiceDetector : MonoBehaviour
 
     private void OnRequestComplete(VoiceServiceRequest request)
     {
-        Debug.Log($"[VoiceDetector] Request complete: {request}");
-
+        // 이미 웨이크워드를 찾았으면 재시작 안 함
         if (voiceCommandReady) return;
 
-        if (appVoiceExperience.MicActive) 
-        { 
-            appVoiceExperience.Activate(); 
+        Debug.Log("[VoiceDetector] Session ended. Restarting shortly...");
+
+        // 즉시 재시작하지 말고, 코루틴으로 딜레이를 줌
+        StartCoroutine(RestartWitRoutine());
+    }
+
+    private IEnumerator RestartWitRoutine()
+    {
+        // 0.5초 대기: 이 시간이 있어야 유니티가 멈추지 않음
+        yield return new WaitForSeconds(0.5f);
+
+        if (!voiceCommandReady)
+        {
+            // 리플렉션 없이 정석대로 실행
+            appVoiceExperience.Activate();
         }
-        else ActivateMic();
     }
 
     private void OnRequestCompleted()

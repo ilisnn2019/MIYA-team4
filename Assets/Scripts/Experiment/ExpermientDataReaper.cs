@@ -37,6 +37,8 @@ public class ExpermientDataReaper : MonoBehaviour
     private TaskRecord currentTask;
     private STTRecord currentSTT;
 
+    private bool istask = false;
+
     private void Start()
     {
         string date = $"{DateTime.Now:yyyy-MM-dd_HH-mm-ss}";
@@ -56,22 +58,24 @@ public class ExpermientDataReaper : MonoBehaviour
     //      STT
     // =============================
 
-    public void StartSTT(string sttResult)
+    public void StartSTT()
     {
+        if (!istask) return;
         currentSTT = new STTRecord();
-        currentSTT.result = sttResult;
 
         timers[DATA_LABEL.STT].Reset();
         timers[DATA_LABEL.STT].Start();
     }
 
-    public void EndSTT()
+    public void EndSTT(string sttResult)
     {
+        if (!istask) return;
         var sw = timers[DATA_LABEL.STT];
         if (sw.IsRunning)
         {
             sw.Stop();
             currentSTT.time = sw.ElapsedMilliseconds;
+            currentSTT.result = sttResult;
         }
 
         currentTask.sttRecords.Add(currentSTT);
@@ -111,10 +115,12 @@ public class ExpermientDataReaper : MonoBehaviour
     {
         timers[DATA_LABEL.ENTIRE_TASK].Reset();
         timers[DATA_LABEL.ENTIRE_TASK].Start();
+        istask = true;
     }
 
     public void EndEntireTask()
     {
+        istask = false;
         var sw = timers[DATA_LABEL.ENTIRE_TASK];
         if (sw.IsRunning)
         {

@@ -99,12 +99,11 @@ Convert each recognized command into a VR function call with valid arguments.
 - If an invalid shape or texture is mentioned, use handle_unknown_command.
 
 - Assume, All object's pivot is located in its center.
-- Try to place objects in Global Position (0,0,0) vector3.
+- Unless there exist specific position, make sure the object is position on vector3 (0,0,0).
+- Make sure the object is positioned within the x and z coordinate range of -2.5 to 2.5.
 - When positioning near another object, consider its size for proper spacing.
 - When placing an object on top of another, add a slight offset on  to avoid collisions.
 
-- When moving object, consider camera's position and forward vector.
-- The local x-axis is to the right and the y-axis is upward relative to the camera.
 - Return JSON array only, no explanations:
 
 ---
