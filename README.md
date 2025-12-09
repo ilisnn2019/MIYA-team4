@@ -49,70 +49,24 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 
 #### 🔧 Unity Editor Setup
 
-**Step-by-step guide to launch MIYA VR Voice Interface from GitHub with Unity Hub:**
+1.  **Clone & Open**
+    ```bash
+    git clone [https://github.com/ilisnn2019/MIYA-team4.git](https://github.com/ilisnn2019/MIYA-team4.git)
+    ```
+    - Add the project to Unity Hub and open with **Unity 6000.0.58f2**.
 
-1. **Clone the Repository**
-    <br><img width="500" height="373" alt="Image" src="https://github.com/user-attachments/assets/3ae8ba3b-b41b-45fd-980d-bf5bafa9de48" /><br>
-   - Go to the GitHub page and click `Code > Copy HTTPS link`.
-   - Open a terminal and run:
-     ```
-     git clone https://github.com/ilisnn2019/MIYA-team4.git
-     ```
-   - Or, use GitHub Desktop or download ZIP and extract.
+2.  **Configuration**
+    - **Platform:** Switch to `Android` (Quest) or `PC, Mac & Linux` in Build Settings.
+    - **XR Plugin:** Enable **Oculus** (or OpenXR) in `Project Settings > XR Plug-in Management`.
+    - **API Key:** **(Essential)** Configure your OpenAI API Key to enable voice features.
 
-2. **Open in Unity Hub**
-    <br><img width="500" height="333" alt="Image" src="https://github.com/user-attachments/assets/ee976fd3-cb63-4029-aad9-59c8c1023f89" /><br>
-    <br><img width="900" height="90" alt="Image" src="https://github.com/user-attachments/assets/8d7d729e-7568-4d9a-b23f-ebf1d88c54a7" /><br>
-   - Launch Unity Hub and click `Add`.
-   - Select the root folder of the downloaded MIYA-team4 project.
-   - In your Unity Hub “Projects” list, select the MIYA-team4 project.
+3.  **Launch**
+    - Open `Assets/Scenes/ExampleMIYA.unity` and press **Play**.
 
-3. **Set Correct Unity Version**
-    <br><img width="500" height="280" alt="Image" src="https://github.com/user-attachments/assets/e7551b76-398a-42bc-8808-df9f82035c74" /><br>
-   - If prompted, select/reinstall the recommended Unity version (e.g., 6000.0.58f2).  
-   - If not installed, click `Install Editor` in Unity Hub and choose the correct version.
-
-4. **Install Required Packages**
-    <br><img width="250" height="350" alt="Image" src="https://github.com/user-attachments/assets/1dba2fe7-270c-4d35-9022-0655f5ee7059" /><br>
-   - Open the project in Unity Editor.
-   - Go to `Window > Package Manager`.
-   - Confirm these packages are present. If not, install/import:
-     - OpenAI-Unity (custom or from manifest.json)
-     - MetaXR
-     - Voice SDK
-     - InputSystem & relevant XR packages
-
-5. **XR Plugin**
-    <br><img width="250" height="510" alt="Image" src="https://github.com/user-attachments/assets/0f84d6dc-1cc7-46e5-a3cd-96e416a21028" /><br>
-    <br><img width="800" height="350" alt="Image" src="https://github.com/user-attachments/assets/f3a64f30-e51b-41a0-a90b-15d7ad6a77aa" /><br>
-   - Open `Edit > Project Settings > XR Plug-in Management`
-   - Enable for intended HMD (e.g., Oculus, OpenXR).
-
-6. **Build Settings**
-    <br><img width="250" height="300" alt="Image" src="https://github.com/user-attachments/assets/8c74a7e2-54f0-4636-b9a1-439f873c38d6" />
-    <img width="250" height="470" alt="Image" src="https://github.com/user-attachments/assets/25545d59-4cb0-4665-9e9e-53eeb90c3f9d" /><br>
-   - Open `File > Build Settings`.
-   - Select your platform: `PC, Mac & Linux` or `Android` for standalone/Quest.
-
-6. **Resource Structure**
-    <br><img width="1000" height="250" alt="Image" src="https://github.com/user-attachments/assets/1c4d1556-886d-46ca-8b27-4fea28e3cb78" /><br>
-   - Ensure all assets (objects, meshes, textures, materials, data) are in correct folders, especially under `Assets/Resources`.
-   - Do not change critical resource folder/file names to avoid missing references in code/scripts.
-     
-7. **API Key Registration**
-   - Follow “OpenAI Key Setup” steps (see section below) to enable voice commands.
-   - Without API keys, LLM/STT features won't function.
-    
-8. **First Launch**
-    <br><img width="500" height="450" alt="Image" src="https://github.com/user-attachments/assets/91cdeccb-677e-4259-870f-eb664d402b9d" /><br>
-   - Open a sample scene: `Assets/Scenes/ExampleMIYA.unity`
-   - Click `Play` (▶) in Unity Editor to test the environment and MIYA pipeline.
-   - Set up microphone permissions and VR device connection as necessary.
-
-
-
-**Design Principle:**  
-MIYA is implemented as a voice-first interface. Gesture and controller input are optional and can be configured if desired, but the core system requires only a working microphone and a VR-ready Unity Editor!
+> 📖 **Need a Step-by-Step Guide?**
+>
+> If you are setting this up for the first time or need detailed configuration instructions,<br>
+> please read the **[📄 Full Installation Guide](docs/INSTALLATION.md)**.
 
 #### 🛠 Inspector Configuration
 
@@ -167,7 +121,7 @@ In preparation
 - Changing resource paths or names can break command execution
 - Current limitations: Some feature coverage non-exhaustive; planned future work includes multi-language support and more gesture fusion
 
-For issues or bug reports, visit [GitHub Issues page](https://github.com/yeongco/MIYA-team4/issues)
+For issues or bug reports, visit [GitHub Issues page](https://github.com/ilisnn2019/MIYA-team4/issues)
 
 ---
 
