@@ -33,10 +33,10 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 * OpenAI API integration (wit.ai, Whisper STT supported)
 
 ### 🎧 **Support HMD**
-|                 | Meta Quest | Vive | Varjo |
-|-----------------|:----:|:-------:|:-----:|
-| **Demo Scene**  |   ✅   |  ✅   |   ✅  |
-| **Miya Pipeline**|  ✅   |   -   |   ✅  |
+|                 | Meta Quest 2 / 3 | Vive | Varjo |
+|-----------------|:----------------:|:----:|:-----:|
+| **Demo Scene** |        ✅        |  ✅  |   ✅  |
+| **Miya Pipeline**|        ✅        |   -  |   ✅  |
 
 ---
 
@@ -66,7 +66,7 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 > 📖 **Need a Step-by-Step Guide?**
 >
 > If you are setting this up for the first time or need detailed configuration instructions,<br>
-> please read the **[📄 Full Installation Guide](docs/INSTALLATION.md)**.
+> please read the **[📄 Full Installation Guide](docs/INSTALLATION_GUIDE.md)**.
 
 #### 🛠 Inspector Configuration
 
