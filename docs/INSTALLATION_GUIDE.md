@@ -74,6 +74,15 @@ Once the project is open, configure the Editor settings.
     - You **must** register your OpenAI API Key for the voice interaction (STT/LLM) to work.
     - *(Refer to the separate API Key Setup section if available, or input via the Inspector).*
 
+##### 🔑 OpenAI Key Setup
+
+1. Create `AccessKeySO` ScriptableObject
+<br><img width="400" height="500" alt="Image" src="https://github.com/user-attachments/assets/6aa028dc-4ca8-4f31-8bcb-c736594811ff" /><br>
+2. Enter OpenAI API Key in Inspector
+<br><img width="800" height="200" alt="Image" src="https://github.com/user-attachments/assets/1c4627ea-0b6c-4c7f-9645-80904926c4bb" /><br>
+3. Connect SO to relevant managers (e.g., `ChatManager`)
+<br><img width="800" height="60" alt="Image" src="https://github.com/user-attachments/assets/bbcdc1fd-2128-48a3-a57c-3de9ff11e268" /><br>
+
 ---
 
 ## Step 4: First Launch

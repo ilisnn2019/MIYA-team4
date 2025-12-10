@@ -84,15 +84,6 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 4. In the project configuration, create and apply the modified prompt.
 5. Test in scene and validate schema-driven execution.
 
-#### 🔑 OpenAI Key Setup
-
-1. Create `AccessKeySO` ScriptableObject
-<br><img width="400" height="500" alt="Image" src="https://github.com/user-attachments/assets/6aa028dc-4ca8-4f31-8bcb-c736594811ff" /><br>
-2. Enter OpenAI API Key in Inspector
-<br><img width="800" height="200" alt="Image" src="https://github.com/user-attachments/assets/1c4627ea-0b6c-4c7f-9645-80904926c4bb" /><br>
-3. Connect SO to relevant managers (e.g., `ChatManager`)
-<br><img width="800" height="60" alt="Image" src="https://github.com/user-attachments/assets/bbcdc1fd-2128-48a3-a57c-3de9ff11e268" /><br>
-
 
 #### 🎨 Customization
 
