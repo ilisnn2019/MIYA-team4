@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using System.Linq;
+using UnityEngine.Events;
 
 public class CommandExecutor : MonoBehaviour
 {
@@ -26,7 +28,7 @@ public class CommandExecutor : MonoBehaviour
     private Light sun = new();
 
     public float maxDistance = 5f;
-    public Action OnCommandExcuteCallback;
+    public UnityEvent OnCommandExcuteCallback;
 
     private readonly Dictionary<string, GameObject> type_entity_pair = new();
     private readonly Dictionary<string, Texture> name_texture_pair = new();
@@ -48,7 +50,7 @@ public class CommandExecutor : MonoBehaviour
 
     public void SetConfiguration(EntityPack epack, TexturePack tpack)
     {
-        foreach(var espec in epack.entitySpec)
+        foreach(var espec in epack.entities)
         {
             type_entity_pair[espec.entityType] = espec.prefab;
         }
@@ -61,32 +63,30 @@ public class CommandExecutor : MonoBehaviour
 
     public void Dispatcher(string json)
     {
-        dispatcher.Dispatch(json, OnCommandExcuteCallback);
+        dispatcher.Dispatch(json, () => { OnCommandExcuteCallback?.Invoke(); });
     }
 
+    // ===============================
+    //  available function
+    // ===============================
     public void create_object(string object_type, string id)
     {
         string type = StringUtils.ToLowerSafe(object_type);
 
-        // ī�޶� ����
         Transform cam = Camera.main.transform;
         Ray ray = new Ray(cam.position, cam.forward);
-        Vector3 spawnPosition = new();
+
+        Vector3 spawnPosition;
 
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
         {
-            // �浹 ������ ��ġ
+
             spawnPosition = hit.point;
         }
         else
         {
-            // �浹 ������ ī�޶� �� maxDistance ��ġ
             spawnPosition = cam.position + cam.forward * maxDistance;
         }
-
-        // �� ������Ʈ ����
-        //prefab���� ��ȯ
-
 
         if (!type_entity_pair.TryGetValue(object_type, out GameObject value))
         {
@@ -99,14 +99,12 @@ public class CommandExecutor : MonoBehaviour
         instanceObject.transform.position = moveAssist.FindSafeSpawnPosition(instanceObject, spawnPosition);
 
         var mr = instanceObject.GetComponent<MeshRenderer>();
-        StartCoroutine(AnimateCutoff(mr.materials[0], 1.2f, -1.2f)); // ���� lerp
+        StartCoroutine(AnimateCutoff(mr.materials[0], 1.2f, -1.2f));
 
-        // ������ ������Ʈ�� ���۷��� �߰� (������Ʈ���� ���)
         EntityInfoAgent agent = instanceObject.GetComponent<EntityInfoAgent>();
-        string rid = registry.Register(id, agent);
-        agent.Initialize(rid);
+        agent.Initialize(id);
 
-        instanceObject.name = object_type + "_" + rid;
+        instanceObject.name = object_type + "_" + id;
 
         storage.RegisterCreate(agent);
 
@@ -165,7 +163,7 @@ public class CommandExecutor : MonoBehaviour
     {
         ApplyToObject(target, reference =>
         {
-            if (ColorUtility.TryParseHtmlString(color, out Color parsedColor))
+            if (UnityEngine.ColorUtility.TryParseHtmlString(color, out Color parsedColor))
             {
                 float Adjust(float channel) =>
                     Mathf.Clamp01(channel + brightness);
@@ -191,7 +189,7 @@ public class CommandExecutor : MonoBehaviour
                     )
                 );
 
-                string hex = $"#{ColorUtility.ToHtmlStringRGB(result)}";
+                string hex = $"#{UnityEngine.ColorUtility.ToHtmlStringRGB(result)}";
                 reference.UpdateProperty("color", hex);
 
                 storage.RegisterUpdate(reference);
@@ -275,66 +273,6 @@ public class CommandExecutor : MonoBehaviour
             callback: () => { Destroy(obj); } 
         ));
 
-    }
-
-    public SkyboxShaderController skyController;
-
-    public void change_time(string target, float time)
-    {
-        StartCoroutine(ChangeTimeSmoothly(time));
-        ApplyToObject(target, reference =>
-        {
-            string hex = $"#{ColorUtility.ToHtmlStringRGB(skyController.GetCurrentSkyColor())}";
-            reference.UpdateProperty("color",hex);
-        });
-
-    }
-
-    private IEnumerator ChangeTimeSmoothly(float targetTime)
-    {
-        float current = skyController.minute;
-
-        float diff = targetTime - current;
-        if (Mathf.Abs(diff) > 720f) // 12�ð�(720��) �̻� ���̸� �ݴ� �������� ��
-        {
-            if (diff > 0) current += 1440f;
-            else targetTime += 1440f;
-            diff = targetTime - current;
-        }
-
-        float totalDiff = Mathf.Abs(diff);
-        float duration = Mathf.Lerp(0.5f, 10f, Mathf.Clamp01(totalDiff / 720f));
-        float elapsed = 0f;
-
-        float start = current;
-        float end = targetTime;
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / duration);
-            float newMinute = Mathf.Lerp(start, end, t);
-
-            skyController.minute = newMinute % 1440f;
-            skyController.ApplyToMaterial();
-
-            yield return null; // �����Ӹ��� ����
-        }
-
-        skyController.minute = targetTime % 1440f;
-        skyController.ApplyToMaterial();
-    }
-
-
-    public SeaController seaController;
-
-    public void change_sea_color(string target, string color)
-    {
-        ColorUtility.TryParseHtmlString(color, out Color parsedColor);
-        seaController.ChangeSeaColor(parsedColor);
-        ApplyToObject(target, reference => {
-            reference.UpdateProperty("color", color);
-        });
     }
 
     // ----------- Util Func ------------

@@ -1,7 +1,11 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class EntityInfoAgent : MonoBehaviour
 {
     [SerializeField] private EntityInfo objectInfo = new();
@@ -12,10 +16,8 @@ public class EntityInfoAgent : MonoBehaviour
 
     public void Initialize(string id)
     {
-        if (!string.IsNullOrEmpty(id))
-        {
-            objectInfo.id = id;
-        }
+        // 에이전트가 직접 레지스터에 등록
+        objectInfo.id = GameObjectRegistry.Instance.Register(id, this);
 
         objectInfo.position = transform.position;
 
@@ -25,6 +27,12 @@ public class EntityInfoAgent : MonoBehaviour
             Vector3 worldSize = meshRenderer.bounds.size;
             objectInfo.size = worldSize;
         }
+    }
+
+    public void OnDestroy()
+    {
+        // 파괴시 레지트터에서 스스로 삭제
+        GameObjectRegistry.Instance.Unregister(objectInfo.id);
     }
 
     public void LoadInfo(EntityInfo newInfo)
@@ -132,6 +140,7 @@ public class EntityInfoAgent : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(EntityInfoAgent))]
 public class EntityInfoAgentEditor : Editor
 {
@@ -146,3 +155,4 @@ public class EntityInfoAgentEditor : Editor
         }
     }
 }
+#endif

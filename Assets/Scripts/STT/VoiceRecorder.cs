@@ -19,13 +19,16 @@ public class VoiceRecorder
     private float maxTimer = 0f;
     private int sampleSize = 256;
 
+    // 외부에서 접근 가능한 현재 볼륨 (0~1 범위)
+    public static float CurrentVolume { get; private set; } = 0f;
+
     public event Action OnRecordingStopped;
+    public event Action OnErrorHandler;
 
     public VoiceRecorder()
     {
-        filePath = Path.Combine(Application.dataPath, "Personals/audio.wav");
+        filePath = Path.Combine(Application.persistentDataPath, "audio.wav");
     }
-
     public void StartRecording()
     {
         if (Microphone.devices.Length == 0)
@@ -34,11 +37,22 @@ public class VoiceRecorder
             return;
         }
 
+        string device = Microphone.devices[0];  // 첫 번째 마이크 장치 사용
+        Debug.Log("<color=cyan>[VoiceRecord]</color> Using device: " + device);
+
         Debug.Log("<color=cyan>[VoiceRecord]</color> Recording started!");
         isRecording = true;
         silenceTimer = 0f;
         maxTimer = 0f;
-        recordedClip = Microphone.Start(null, false, MAX_RECORD_TIME, 16000);
+        recordedClip = Microphone.Start(device, false, MAX_RECORD_TIME, 16000);
+
+        if (recordedClip == null)
+        {
+            Debug.LogError("<color=red>[VoiceRecord]</color> Failed to start recording with device: " + device);
+            OnErrorHandler.Invoke();
+            return;
+        }
+
         UnityMainThreadDispatcher.Instance().Enqueue(CheckSilenceAndStop());
     }
 
@@ -52,32 +66,34 @@ public class VoiceRecorder
                 yield break;
 
             int position = Microphone.GetPosition(null);
-            if (position < sampleSize) continue;
-
-            recordedClip.GetData(samples, position - sampleSize);
-
-            bool hasSound = false;
-            foreach (float sample in samples)
+            if (position < sampleSize)
             {
-                if (Mathf.Abs(sample) > SILENCE_THRESHOLD)
-                {
-                    hasSound = true;
-                    break;
-                }
+                yield return null;
+                continue;
             }
+
+            // 음수 인덱스를 방지하기 위해 position - sampleSize가 0 미만이면 0으로 설정
+            int startPosition = Mathf.Max(0, position - sampleSize);
+
+            recordedClip.GetData(samples, startPosition);
+
+            // 볼륨 계산
+            float sum = 0f;
+            for (int i = 0; i < samples.Length; i++)
+                sum += samples[i] * samples[i];
+            float rms = Mathf.Sqrt(sum / samples.Length);
+            CurrentVolume = Mathf.Clamp01(rms * 10f); // 감도 보정 (임의 배수)
+
+            bool hasSound = rms > SILENCE_THRESHOLD;
+
+            if (hasSound)
+                silenceTimer = 0f;
+            else
+                silenceTimer += 0.1f;
 
             maxTimer += 0.1f;
 
-            if (hasSound)
-            {
-                silenceTimer = 0f;
-            }
-            else
-            {
-                silenceTimer += 0.1f;
-            }
-
-            GText.PrintState($"Record Voice, silence timer : {silenceTimer}");
+            GText.PrintState($"Record Voice, silence timer : {silenceTimer}, vol : {CurrentVolume:F2}");
 
             if (silenceTimer >= SILENCE_DURATION || maxTimer >= 15f)
             {
@@ -88,6 +104,7 @@ public class VoiceRecorder
             yield return new WaitForSeconds(0.1f);
         }
     }
+
 
     public void StopRecording()
     {
@@ -101,11 +118,13 @@ public class VoiceRecorder
         Microphone.End(null);
         Debug.Log("<color=cyan>[VoiceRecord]</color> Recording stopped. Saving...");
 
-        //무음 제거 후 WAV 저장
-        var trimmed = SaveWav.TrimSilence(recordedClip, SILENCE_THRESHOLD);
+        // 볼륨 리셋
+        CurrentVolume = 0f;
+
+        // 무음 제거 후 WAV 저장
+        var trimmed = SaveWav.TrimSilence(recordedClip, SILENCE_THRESHOLD, OnErrorHandler);
         byte[] wavData = SaveWav.Save(Path.GetFileName(filePath), trimmed);
 
-        // 파일 저장
         File.WriteAllBytes(filePath, wavData);
         Debug.Log("<color=cyan>[VoiceRecord]</color> Saved to: " + filePath);
 

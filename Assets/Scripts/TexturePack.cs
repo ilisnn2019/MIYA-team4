@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TextureSpec", menuName = "Game/Texture Spec", order = 102)]
-public class TextureSpec : ScriptableObject
+[System.Serializable]
+public class TextureSpec
 {
-    [Header("Reference Prefab")]
-    public Texture texture;
-    [Header("Texture Basic Info")]
     public string identifier = "";
+    public Texture texture;
 }
 
 [CreateAssetMenu(fileName = "TexturePack", menuName = "Game/Texture Pack", order = 103)]

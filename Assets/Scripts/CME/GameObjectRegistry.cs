@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using Mono.Collections.Generic;
 using System.Linq;
 using Microsoft.Win32;
 
@@ -19,8 +18,11 @@ interface IRegistry
 /// </summary>
 public class GameObjectRegistry : IRegistry
 {
+    public static GameObjectRegistry Instance;
+
     public GameObjectRegistry()
     {
+        Instance = this;
         InterfaceContainer.Register<IRegistry>("registry", this);
     }
 
@@ -30,17 +32,17 @@ public class GameObjectRegistry : IRegistry
 
     public string Register(string id, EntityInfoAgent reference)
     {
-        if(id.Length == 0)
+        if (string.IsNullOrEmpty(id))
             id = RandomStringUtil.Generate10();
-        else
-            id = EnsureFixedLengthId(id);
+
+        id = EnsureFixedLengthId(id);
 
         while (!map.TryAdd(id, reference))
         {
             id = RandomStringUtil.Generate10();
         }
+
         Debug.Log($"register in registry : {id}");
-        LLog.Log(LogType.Log, "REG", id);
         return id;
     }
 
