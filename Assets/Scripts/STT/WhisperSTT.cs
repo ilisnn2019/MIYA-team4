@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using OpenAI;
-using OVR.OpenVR;
 using PimDeWitte.UnityMainThreadDispatcher;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -25,7 +24,8 @@ public class WhisperSTT : ISTT
     [ContextMenu("Call STT")]
     public void SpeechtoText(Action<string> callback)
     {
-        filePath = Path.Combine(Application.dataPath, "Personals/audio.wav");
+        filePath = Path.Combine(Application.persistentDataPath, "audio.wav");
+
         UnityMainThreadDispatcher.Instance().Enqueue(UploadAudioAndGetText(callback));
     }
 
@@ -40,7 +40,6 @@ public class WhisperSTT : ISTT
         byte[] audioData = File.ReadAllBytes(filePath);
         LLog.Log(LogType.Log, HEAD, "Audio file size: " + audioData.Length);
 
-        // Whisper ¿äÃ» »ý¼º
         var request = new CreateAudioTranscriptionsRequest
         {
             FileData = new FileData
@@ -49,14 +48,12 @@ public class WhisperSTT : ISTT
                 Name = "audio.wav"
             },
             Model = "whisper-1",
-            Language = "ko",          // ÇÑ±¹¾î·Î ÁöÁ¤
-            Temperature = 0f          // µ¡ºÙÀÓ ¾ïÁ¦
+            Language = "ko",          // ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            Temperature = 0f          // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         };
 
-        // ºñµ¿±â È£Ãâ ·¡ÇÎ
         var task = openai.CreateAudioTranscription(request);
 
-        // ±â´Ù¸²
         while (!task.IsCompleted) yield return null;
 
         if (task.IsFaulted)

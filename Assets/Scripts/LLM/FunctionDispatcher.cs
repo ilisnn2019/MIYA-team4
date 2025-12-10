@@ -20,7 +20,7 @@ public class FunctionDispatcher
         _executor = executor;
         _methodMap = new Dictionary<string, MethodInfo>();
 
-        var methods = executor.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        var methods = executor.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public);
 
         foreach (var method in methods)
         {
@@ -57,14 +57,9 @@ public class FunctionDispatcher
                             token = FindTokenRecursive(call.arguments, param.Name);
                         }
 
-                        if (token != null)
-                        {
-                            args[i] = token.ToObject(param.ParameterType);
-                        }
-                        else
-                        {
-                            args[i] = param.HasDefaultValue ? param.DefaultValue : GetDefault(param.ParameterType);
-                        }
+                        args[i] = token != null
+                            ? token.ToObject(param.ParameterType)
+                            : (param.HasDefaultValue ? param.DefaultValue : GetDefault(param.ParameterType));
                     }
 
                     method.Invoke(_executor, args);
@@ -74,8 +69,6 @@ public class FunctionDispatcher
                     Debug.LogWarning($"No matching method for function name: {funcName}");
                 }
             }
-
-            callback?.Invoke();
         }
         catch (TargetInvocationException ex)
         {
@@ -85,9 +78,12 @@ public class FunctionDispatcher
         {
             Debug.LogError("Dispatch error: " + e.Message);
         }
-
-
+        finally
+        {
+            callback?.Invoke();
+        }
     }
+
 
     private JToken FindTokenRecursive(JObject obj, string paramName)
     {

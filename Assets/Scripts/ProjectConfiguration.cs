@@ -6,9 +6,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
-using UnityEditor;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ProjectConfiguration : MonoBehaviour
 {
@@ -17,20 +20,21 @@ public class ProjectConfiguration : MonoBehaviour
     public ChatManager chatManager;
     public CommandExecutor executor;
 
-    public TextAsset promptFile; // 프롬프트 텍스트 파일 (.txt)
-    public EntityPack objectListFile; // 오브젝트 타입이 적힌 외부 파일 -> scriptableobject로 변경
-    public TexturePack textureListFile; // 텍스쳐 리스트가 적힌 외부 파일  -> scriptableobject로 변경
+    public TextAsset promptFile;
+    public EntityPack objectListFile; 
+    public TexturePack textureListFile; 
     public string newPromptName;
 
+#if UNITY_EDITOR
     public void UpdatePromptFile()
     {
         string promptPath = AssetDatabase.GetAssetPath(promptFile);
         string promptText = File.ReadAllText(promptPath, Encoding.UTF8);
 
         string objectTypes = "(none)";
-        if (objectListFile != null && objectListFile.entitySpec != null && objectListFile.entitySpec.Count > 0)
+        if (objectListFile != null && objectListFile.entities != null && objectListFile.entities.Count > 0)
         {
-            objectTypes = string.Join("\n", objectListFile.entitySpec.Select(e => e.entityType));
+            objectTypes = string.Join("\n", objectListFile.entities.Select(e => e.entityType));
         }
 
         string textures = "(none)";
@@ -54,11 +58,9 @@ public class ProjectConfiguration : MonoBehaviour
         File.WriteAllText(newFilePath, promptText, Encoding.UTF8);
         AssetDatabase.Refresh();
 
-        chatManager.prompt_name = newPromptName;
-
         Debug.Log($"Prompt file updated at: {promptPath}");
     }
-
+#endif
     [SerializeField]
     private EntityInfoAgent[] entities;
 
@@ -71,14 +73,14 @@ public class ProjectConfiguration : MonoBehaviour
 
         foreach (var entity in entities)
         {
-            entity.Initialize(registry.Register("", entity));
+            entity.Initialize("");
         }
 
         executor.SetConfiguration(objectListFile, textureListFile);    
     }
 
 }
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(ProjectConfiguration))]
 public class ProjectConfigurationEditor : Editor
 {
@@ -162,3 +164,4 @@ public class ProjectConfigurationEditor : Editor
         GUILayout.Space(5);
     }
 }
+#endif

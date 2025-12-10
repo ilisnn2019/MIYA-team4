@@ -56,47 +56,64 @@ namespace Samples.Whisper
 			}
 		}
 
-		public static AudioClip TrimSilence(AudioClip clip, float min)
+		public static AudioClip TrimSilence(AudioClip clip, float min, Action handler = null)
 		{
 			var samples = new float[clip.samples];
 
 			clip.GetData(samples, 0);
 
-			return TrimSilence(new List<float>(samples), min, clip.channels, clip.frequency);
+			return TrimSilence(new List<float>(samples), min, clip.channels, clip.frequency, handler: handler);
 		}
 
-		public static AudioClip TrimSilence(List<float> samples, float min, int channels, int hz, bool stream = false)
-		{
-			int i;
+        public static AudioClip TrimSilence(List<float> samples, float min, int channels, int hz, bool stream = false, Action handler = null)
+        {
+            try
+            {
+                int i;
 
-			for (i = 0; i < samples.Count; i++)
-			{
-				if (Mathf.Abs(samples[i]) > min)
-				{
-					break;
-				}
-			}
+                // Trim leading silence
+                for (i = 0; i < samples.Count; i++)
+                {
+                    if (Mathf.Abs(samples[i]) > min)
+                        break;
+                }
 
-			samples.RemoveRange(0, i);
+                if (i > 0)
+                    samples.RemoveRange(0, i);
 
-			for (i = samples.Count - 1; i > 0; i--)
-			{
-				if (Mathf.Abs(samples[i]) > min)
-				{
-					break;
-				}
-			}
+                // If the list is now empty, return a silent clip
+                if (samples.Count == 0)
+                    return AudioClip.Create("EmptyClip", 1, channels, hz, stream);
 
-			samples.RemoveRange(i, samples.Count - i);
+                // Trim trailing silence
+                for (i = samples.Count - 1; i >= 0; i--)
+                {
+                    if (Mathf.Abs(samples[i]) > min)
+                        break;
+                }
 
-			var clip = AudioClip.Create("TempClip", samples.Count, channels, hz, stream);
+                // Remove trailing silence safely
+                if (i < samples.Count - 1)
+                    samples.RemoveRange(i + 1, samples.Count - (i + 1));
 
-			clip.SetData(samples.ToArray(), 0);
+                if (samples.Count == 0)
+                    return AudioClip.Create("EmptyClip", 1, channels, hz, stream);
 
-			return clip;
-		}
+                // Create AudioClip
+                var clip = AudioClip.Create("TempClip", samples.Count, channels, hz, stream);
+                clip.SetData(samples.ToArray(), 0);
+                return clip;
+            }
+            catch (Exception ex)
+            {
+                handler?.Invoke();  // Call the handler if provided
+                                      // Return a silent clip as fallback
+                return AudioClip.Create("ErrorClip", 1, channels, hz, stream);
+            }
+        }
 
-		static MemoryStream CreateEmpty()
+
+        static MemoryStream CreateEmpty()
 		{
 			var memoryStream = new MemoryStream();
 			byte emptyByte = new byte();

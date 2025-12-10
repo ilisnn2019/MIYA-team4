@@ -63,8 +63,7 @@ public class ObjectLoader : MonoBehaviour
         var registry = InterfaceContainer.Resolve<IRegistry>("registry") as GameObjectRegistry;
         if (registry != null)
         {
-            string finalId = registry.Register(info.id, reference);
-            Debug.Log($"Registered GameObject with ID: {finalId}");
+            //string finalId = registry.Register(info.id, reference);
         }
         else
         {
