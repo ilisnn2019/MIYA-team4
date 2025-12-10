@@ -13,6 +13,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR;
 
 public class VoiceDetector : MonoBehaviour
 {
@@ -213,7 +214,42 @@ public class VoiceDetector : MonoBehaviour
             Debug.LogError("[VoiceDetector] Cannot activate mic.");
         }
         appVoiceExperience.Activate();
+        isallowed = true;
     }
 
     #endregion
+
+    bool isAPressedLastFrame = false;
+    bool isallowed = false;
+    // B 버튼 누르면 바로 녹음으로 이동.
+    private void Update()
+    {
+        CheckAButtonInput();
+    }
+    void CheckAButtonInput()
+    {
+        InputDevice rightHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+
+        if (rightHandDevice.isValid && isallowed)
+        {
+            bool isAPressedThisFrame = false;
+            if (rightHandDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out isAPressedThisFrame))
+            {
+                if (isAPressedThisFrame && !isAPressedLastFrame)
+                {
+                    isallowed = false;
+                    WakeWordDetected(null);
+                }
+                isAPressedLastFrame = isAPressedThisFrame;
+            }
+            else
+            {
+                isAPressedLastFrame = false;
+            }
+        }
+        else
+        {
+            isAPressedLastFrame = false;
+        }
+    }
 }

@@ -29,7 +29,6 @@ public class VoiceRecorder
     {
         filePath = Path.Combine(Application.persistentDataPath, "audio.wav");
     }
-
     public void StartRecording()
     {
         if (Microphone.devices.Length == 0)
@@ -38,11 +37,22 @@ public class VoiceRecorder
             return;
         }
 
+        string device = Microphone.devices[0];  // 첫 번째 마이크 장치 사용
+        Debug.Log("<color=cyan>[VoiceRecord]</color> Using device: " + device);
+
         Debug.Log("<color=cyan>[VoiceRecord]</color> Recording started!");
         isRecording = true;
         silenceTimer = 0f;
         maxTimer = 0f;
-        recordedClip = Microphone.Start(null, false, MAX_RECORD_TIME, 16000);
+        recordedClip = Microphone.Start(device, false, MAX_RECORD_TIME, 16000);
+
+        if (recordedClip == null)
+        {
+            Debug.LogError("<color=red>[VoiceRecord]</color> Failed to start recording with device: " + device);
+            OnErrorHandler.Invoke();
+            return;
+        }
+
         UnityMainThreadDispatcher.Instance().Enqueue(CheckSilenceAndStop());
     }
 

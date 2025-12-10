@@ -76,7 +76,7 @@ public class CommandExecutor : MonoBehaviour
         Transform cam = Camera.main.transform;
         Ray ray = new Ray(cam.position, cam.forward);
 
-        Vector3 spawnPosition = new Vector3(0, 0, 0);
+        Vector3 spawnPosition = new Vector3(0, 1, 0);
 
         /* Disable only in experiment
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
@@ -439,6 +439,7 @@ public class CommandExecutor : MonoBehaviour
         {
             var agent = selected_agents[i];
             agent.transform.position = new Vector3(i * spacing, 0, 0) + instantiatePosition.position;
+            agent.Info.position = agent.transform.position;
         }
     }
     private void ArrangeMatrix()
@@ -457,6 +458,7 @@ public class CommandExecutor : MonoBehaviour
             int col = i % columns;
 
             agent.transform.position = new Vector3(col * spacing, 0, row * spacing) + instantiatePosition.position;
+            agent.Info.position = agent.transform.position;
         }
     }
     private void ArrangeCircle()
@@ -472,6 +474,7 @@ public class CommandExecutor : MonoBehaviour
             float z = Mathf.Sin(angle) * radius;
 
             selected_agents[i].transform.position = new Vector3(x, 0, z) + instantiatePosition.position;
+            selected_agents[i].Info.position = selected_agents[i].transform.position;
         }
     }
     #endregion

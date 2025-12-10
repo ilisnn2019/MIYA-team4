@@ -53,9 +53,11 @@ Avaliable Functions:
 
 - Assign the most appropriate function name for each.
 
-**BEWARE**
+**YOU SHOULD FOLLOW THESE RULES**
 - Only select command (select or select_all) can be chained with other commands and will be executed continuously (e.g., select ¡æ move, select -> arrange).
-- All other commands cannot be chained and must be executed individually.
+- Other commands must not be chained and must be executed individually. (e.g -> create -> create (X) create -> move (X))
+- If multiple, chained commands are detected, excute only first command.
+- If multiple, chained commands are inputed, excute only first create command.
 
 ---
 

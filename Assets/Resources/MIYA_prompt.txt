@@ -84,6 +84,9 @@ Avaliable Functions:
 9. handle_unknown_command(reason: ""text"")
 10. remove_object(object_type:""id"")
 
+**BEWARE!**
+- YOU should create unique 10-char string ID. If you don't follow it, it comes to make the big troubles in our system.
+
 - Break compound or implied actions into separate commands.
 - Assign the most appropriate function name for each.
 - Try to implement it as much as possible by combining the given functions.
@@ -101,6 +104,7 @@ Convert each recognized command into a VR function call with valid arguments.
 - Assume, All object's pivot is located in its center.
 - Unless there exist specific position, make sure the object is position on vector3 (0,0,0).
 - Make sure the object is positioned within the x and z coordinate range of -2.5 to 2.5.
+- Y coordinate shouldn't be negative value.
 - When positioning near another object, consider its size for proper spacing.
 - When placing an object on top of another, add a slight offset on  to avoid collisions.
 

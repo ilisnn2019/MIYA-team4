@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -8,8 +9,6 @@ public class SpawnNearFacing : MonoBehaviour
     public GameObject testPrefab;      // 테스트용 프리팹
     public LayerMask surfaceMask;
     public LayerMask objectMask;
-    [Tooltip("Use when environment is not Terrain")]
-    public Vector3 defaultHeight;
 
     [Header("Gizmo Debug")]
     public bool drawGizmos = true;
@@ -28,76 +27,41 @@ public class SpawnNearFacing : MonoBehaviour
     public Vector3 FindSafeSpawnPosition(GameObject prefab, Vector3 initialPosition)
     {
         debugPositions.Clear();
-        debugPositions.Add(initialPosition);
 
         Collider prefabCollider = prefab.GetComponent<Collider>();
         if (prefabCollider == null)
         {
-            Debug.LogWarning($"[FindSafeSpawnPosition] Prefab '{prefab.name}'에 Collider가 필요합니다.");
+            Debug.LogWarning($"Prefab '{prefab.name}' requires a Collider.");
             return initialPosition;
         }
 
         float radius = GetObjectRadius(prefab);
-        float stepDistance = Mathf.Max(radius * 0.5f, 0.05f);
-        int maxIterations = 20;
+        Vector3 current = initialPosition;
 
-        Vector3 currentPosition = initialPosition;
+        const float upwardStep = 0.5f; // 요청하신 고정 상승값
+        const int maxIterations = 20;
 
-        // DOWN Ray로 지면 히트 여부 확인
-        bool hitGround = Physics.Raycast(initialPosition + Vector3.up * 0.5f, Vector3.down, out RaycastHit hit, 5f, surfaceMask, QueryTriggerInteraction.Ignore);
-
-        if (!hitGround)
-        {
-            // 공중이라면 -> Terrain 기반 보정 수행
-            currentPosition = FindGroundSurfacePoint(initialPosition, surfaceMask, prefab);
-        }
-        // else: 이미 지면 위면 그대로 둠
-
-        debugPositions.Add(currentPosition);
-
-        // 이후 기존의 충돌 회피 루프
         for (int i = 0; i < maxIterations; i++)
         {
-            Collider[] overlaps = Physics.OverlapSphere(currentPosition, radius, objectMask, QueryTriggerInteraction.Ignore);
-            if (overlaps.Length == 0)
+            Collider[] hits = Physics.OverlapSphere(
+                current,
+                radius,
+                objectMask,
+                QueryTriggerInteraction.Ignore
+            );
+
+            // 충돌 없음 → 종료
+            if (hits.Length == 0)
                 break;
 
-            Vector3 totalMoveDir = Vector3.zero;
-            int validHits = 0;
-
-            foreach (Collider hitCol in overlaps)
-            {
-                if (hitCol == null || hitCol == prefabCollider || hitCol.gameObject == prefab)
-                    continue;
-
-                if (Physics.ComputePenetration(
-                    hitCol, hitCol.transform.position, hitCol.transform.rotation,
-                    prefabCollider, currentPosition, prefab.transform.rotation,
-                    out Vector3 direction, out float distance))
-                {
-                    validHits++;
-                    float upDot = Vector3.Dot(direction, Vector3.up);
-                    if (upDot > 0.7f)
-                        totalMoveDir += Vector3.up * (1f - upDot);
-                    else
-                        totalMoveDir += direction;
-                }
-            }
-
-            if (validHits == 0 || totalMoveDir == Vector3.zero)
-                break;
-
-            totalMoveDir.Normalize();
-            currentPosition += totalMoveDir * stepDistance;
-            debugPositions.Add(currentPosition);
-
-            if (Physics.OverlapSphere(currentPosition, radius * 0.95f, objectMask, QueryTriggerInteraction.Ignore).Length == 0)
-                break;
+            // 충돌이 있다면 Y 위로 +0.5f
+            current.y += upwardStep;
+            debugPositions.Add(current);
         }
 
-        debugPositions.Add(currentPosition);
-        return currentPosition;
+        return current;
     }
+
 
     private float GetObjectRadius(GameObject prefab)
     {
@@ -129,7 +93,7 @@ public class SpawnNearFacing : MonoBehaviour
         if (terrain == null)
         {
             Debug.LogWarning("[FindGroundSurfacePoint] Scene에 Terrain이 없습니다.");
-            return startPos + defaultHeight;
+            return startPos;
         }
 
         //  Terrain 높이 샘플
