@@ -19,7 +19,7 @@
 ---
 
 ### 💡 WHAT
-<img width="640" height="300" alt="Image" src="https://github.com/user-attachments/assets/0a1f70ad-9e9d-4e17-a0e8-2af9b3cc890c" />
+<img width="640" height="300" alt="Image" src="https://github.com/user-attachments/assets/0a1f70ad-9e9d-4e17-a0e8-2af9b3cc890c" /><br>
 MIYA is a natural language voice interface designed for Unity VR environments. Users interact exclusively via voice, leveraging Large Language Models (LLM) and Speech-To-Text (STT) technology to create,transform and manipulate VR objects through speech-driven commands.
 **Key Proposition:** MIYA proposes the full potential of a voice-only interface in immersive VR. You can control all scenes and manage objects without the need for keyboard, controller, or gesture input—just voice.
 
@@ -103,7 +103,21 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 ---
 
 ## 📋 Sample Command
-In preparation
+
+Experience the core capabilities of MIYA through these voice commands.
+
+| **Create Object** | **Change Color** |
+|:---:|:---:|
+| <img src="docs/images/01.create.gif" width="200" /> | <img src="docs/images/02.color.gif" width="200" /> |
+| *"Create a cube"* | *"Make cube red"* |
+
+| **Move Object** | **Rotate Object** |
+|:---:|:---:|
+| <img src="docs/images/03.move.gif" width="200" /> | <img src="docs/images/04.rotate.gif" width="200" /> |
+| *"Move cube right"* | *"Rotate cube 45 degrees"* |
+
+> 🚀 **Explore All 13 Commands**
+> Check out the full gallery in the **[📄 Command Showcase](docs/COMMANDS.md)**.
 
 ---
 
