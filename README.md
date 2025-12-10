@@ -20,7 +20,7 @@
 
 ### 💡 WHAT
 <img width="640" height="300" alt="Image" src="https://github.com/user-attachments/assets/0a1f70ad-9e9d-4e17-a0e8-2af9b3cc890c" /><br>
-MIYA is a natural language voice interface designed for Unity VR environments. Users interact exclusively via voice, leveraging Large Language Models (LLM) and Speech-To-Text (STT) technology to create,transform and manipulate VR objects through speech-driven commands.
+MIYA is a natural language voice interface designed for Unity VR environments. Users interact exclusively via voice, leveraging Large Language Models (LLM) and Speech-To-Text (STT) technology to create, transform and manipulate VR objects through speech-driven commands.<br>
 **Key Proposition:** MIYA proposes the full potential of a voice-only interface in immersive VR. You can control all scenes and manage objects without the need for keyboard, controller, or gesture input—just voice.
 
 ### 🎯 WHY
@@ -28,16 +28,26 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 - User-friendly: Natural speech replaces complex control schemes.
 - Shows that voice input alone supports precise and intuitive manipulation, establishing a new standard for hands-free VR interaction.
 
+### 🚀 Performance
+We compared MIYA with existing voice interface baselines to validate its efficiency and accuracy.
+
+| Metric | Previous Work | **MIYA (Ours)** | Improvement |
+| :--- | :---: | :---: | :---: |
+| **STT Accuracy** | 96.71 ± 0.05% | **98.6%** | 🔼 **+1.89%** |
+| **TTC (Latency)**| 21.0s | **2.69s** | ⚡ **87% Faster** |
+
+> **Result:** MIYA achieves near-perfect command recognition while drastically reducing execution time, enabling a seamless real-time VR experience.
+
 ### 🧪 **Tested on**
-* MetaQuest3 / Varjo XR-4
+* MetaQuest2/3 / Varjo XR-4
 * Unity 6000.0.58f2
 * OpenAI API integration (wit.ai, Whisper STT supported)
 
 ### 🎧 **Support HMD**
 |                 | Meta Quest 2 / 3 | Vive | Varjo |
 |-----------------|:----------------:|:----:|:-----:|
-| **Demo Scene** |        ✅        |  ✅  |   ✅  |
-| **Miya Pipeline**|        ✅        |   -  |   ✅  |
+| **Demo Scene** |        ✅        |  -  |   -  |
+| **Miya Pipeline**|        ✅        |   ✅  |   ✅  |
 
 ---
 
@@ -47,12 +57,14 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 - Multi-pass command analysis: Context Awareness → Intent Recognition → Entity Extraction → Clarification.
 - Supports extensive voice commands: create, rotate, move, scale, color/texture change, selection, deletion, set weight/time, and more.
 - Designed for robust operation in collaborative and multimodal (voice+gesture) VR settings.
+> 📖 **Need a Step-by-Step Guide?** <br>
+> If you are setting this up for the first time, please read the **[Full Installation Guide](docs/INSTALLATION_GUIDE.md)**.
 
 #### 🔧 Unity Editor Setup
 
 1.  **Clone & Open**
     ```bash
-    git clone [https://github.com/ilisnn2019/MIYA-team4.git](https://github.com/ilisnn2019/MIYA-team4.git)
+    git clone https://github.com/ilisnn2019/MIYA-team4.git
     ```
     - Add the project to Unity Hub and open with **Unity 6000.0.58f2**.
 
@@ -63,9 +75,6 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 
 3.  **Launch**
     - Open `Assets/Scenes/ExampleMIYA.unity` and press **Play**.
-
-> 📖 **Need a Step-by-Step Guide?**<br>
-> please read the **[📄 Full Installation Guide](docs/INSTALLATION_GUIDE.md)**.
 
 #### 🛠 Inspector Configuration
 
@@ -93,10 +102,11 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 
 ### 🎮 Demo Scene Usage (Demo Scene APK)
 
-- The Demo scene will be distributed as an APK.
-- Supported commands (create/move/rotate/color/texture/scale etc) will be documented in release notes.
-- Real APK usage includes wake-word detection, entity-driven commands, rapid real-time feedback.
-- Details and updates (supported devices, command guide) to follow with each release.
+You can experience the MIYA demo directly on your Meta Quest device without setting up the Unity Editor.
+
+- **Download:** Get the latest `MIYA_DEMO.apk` file from the **[Releases](../../releases)** page.
+- **Install:** Sideload the APK onto your Meta Quest 2 or 3 using tools like **SideQuest** or **Meta Quest Developer Hub (MQDH)**.
+- **Run:** Once installed, find the app in your library under **Unknown Sources** and launch it to test voice commands immediately.
 
 ---
 
@@ -115,7 +125,7 @@ Experience the core capabilities of MIYA through these voice commands.
 | *"Move cube right"* | *"Rotate cube 45 degrees"* |
 
 > 🚀 **Explore All 13 Commands**<br>
-> Check out the full gallery in the **[📄 Command Showcase](docs/COMMANDS.md)**.
+> Check out the full gallery in the **[Command Showcase](docs/COMMANDS.md)**.
 
 ---
 
