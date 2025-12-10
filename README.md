@@ -122,7 +122,7 @@ Experience the core capabilities of MIYA through these voice commands.
 | **Move Object** | **Rotate Object** |
 |:---:|:---:|
 | <img src="docs/images/03.move.gif" width="200" /> | <img src="docs/images/04.rotate.gif" width="200" /> |
-| *"Move cube right"* | *"Rotate cube 45 degrees"* |
+| *"Move cube right"* | *"Rotate cube 30 degrees"* |
 
 > 🚀 **Explore All 13 Commands**<br>
 > Check out the full gallery in the **[Command Showcase](docs/COMMANDS.md)**.
