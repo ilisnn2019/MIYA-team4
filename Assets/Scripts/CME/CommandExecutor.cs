@@ -76,9 +76,8 @@ public class CommandExecutor : MonoBehaviour
         Transform cam = Camera.main.transform;
         Ray ray = new Ray(cam.position, cam.forward);
 
-        Vector3 spawnPosition = new Vector3(0, 1, 0);
+        Vector3 spawnPosition;
 
-        /* Disable only in experiment
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
         {
 
@@ -88,7 +87,6 @@ public class CommandExecutor : MonoBehaviour
         {
             spawnPosition = cam.position + cam.forward * maxDistance;
         }
-        */
 
         if (!type_entity_pair.TryGetValue(object_type, out GameObject value))
         {
@@ -277,207 +275,6 @@ public class CommandExecutor : MonoBehaviour
 
     }
 
-    #region hand-free vr function
-    [Header("Use only for hand-free VR")]
-    public Transform instantiatePosition;
-    [SerializeField]List<EntityInfoAgent> selected_agents = new();
-
-    public void create(string object_type)
-    {
-        string type = StringUtils.ToLowerSafe(object_type);
-
-        GameObject go = Instantiate(type_entity_pair[type]);
-
-        // 위치/기본 설정
-        go.transform.position = instantiatePosition.position;      // 필요 시 파라미터로 변경 가능
-        go.transform.localScale = Vector3.one;
-
-        // 생성된 객체가 EntityInfoAgent를 가지면 자동 등록
-        EntityInfoAgent agent = go.GetComponent<EntityInfoAgent>();
-        agent.Initialize("");
-
-
-        if (EventsManager.instance != null)
-        {
-            EventsManager.instance.conditionEvents.SpawnedObject(agent);
-            Debug.Log("생성 이벤트 발생 : " + agent);
-        }
-    }
-
-    public void create_withcolor (string object_type, string color)
-    {
-        string type = StringUtils.ToLowerSafe(object_type);
-
-        GameObject go = Instantiate(type_entity_pair[type]);
-
-        // 위치/기본 설정
-        go.transform.position = instantiatePosition.position;      // 필요 시 파라미터로 변경 가능
-        go.transform.localScale = Vector3.one;
-
-        // 생성된 객체가 EntityInfoAgent를 가지면 자동 등록
-        EntityInfoAgent agent = go.GetComponent<EntityInfoAgent>();
-        agent.Initialize("");
-
-        string targetHex = GetHexFromName(color);
-        UnityEngine.ColorUtility.TryParseHtmlString(color, out Color parsedColor);
-
-        var renderer = agent.GetComponent<MeshRenderer>();
-        renderer.materials[0].SetColor(PROB_COLOR, parsedColor);
-
-        agent.Info.color = targetHex;
-
-        if (EventsManager.instance != null)
-        {
-            EventsManager.instance.conditionEvents.SpawnedObject(agent);
-            Debug.Log("생성 이벤트 발생 : " + agent);
-        }
-    }
-
-    public void select_all()
-    {
-        selected_agents.Clear();
-        selected_agents = registry.GetAllAgents().ToList();
-    }
-
-    public void select(string object_type)
-    {
-        string type = StringUtils.ToLowerSafe(object_type);
-        selected_agents.Clear();
-        foreach (var agent in registry.GetAllAgents())
-        {
-            if (agent.Info.type.Equals(type)) selected_agents.Add(agent);
-        }
-    }
-
-    private readonly Dictionary<string, string> ColorNameToHex = new()
-    {
-        { "white", "#FFFFFF" },
-        { "black", "#000000" },
-        { "red", "#FF0000" },
-        { "green", "#00FF00" },
-        { "blue", "#0000FF" },
-        { "yellow", "#FFFF00" },
-        { "cyan", "#00FFFF" },
-        { "magenta", "#FF00FF" },
-        { "gray", "#808080" },
-    };
-
-    public void select_withcolor(string object_type, string color)
-    {
-        string type = StringUtils.ToLowerSafe(object_type);
-        string targetHex = GetHexFromName(color);
-
-        if (targetHex == null)
-        {
-            Debug.LogWarning($"Unknown color name: {color}");
-            return;
-        }
-
-        selected_agents.Clear();
-
-        foreach (var agent in registry.GetAllAgents())
-        {
-            if (agent.Info.type.Equals(type) &&
-                agent.Info.color.Equals(targetHex, StringComparison.OrdinalIgnoreCase))
-            {
-                selected_agents.Add(agent);
-            }
-        }
-    }
-
-    private string GetHexFromName(string name)
-    {
-        name = StringUtils.ToLowerSafe(name);
-        return ColorNameToHex.TryGetValue(name, out var hex) ? hex : null;
-    }
-
-    public void move_to_sphere()
-    {
-        Vector3 spherePosition = Vector3.zero;
-        foreach (var agent in registry.GetAllAgents())
-        {
-            if (agent.Info.type.Equals("sphere"))
-            {
-                spherePosition = agent.transform.position;
-                break;
-            }
-        }
-        foreach(var agent in selected_agents)
-        {
-            agent.transform.position = spherePosition + new Vector3(1,0,0);
-            agent.Info.position = agent.transform.position;
-        }
-    }
-    public void arrange(string mode)
-    {
-        mode = StringUtils.ToLowerSafe(mode);
-
-        switch (mode)
-        {
-            case "row":
-                ArrangeRow();
-                break;
-
-            case "matrix":
-                ArrangeMatrix();
-                break;
-
-            case "circle":
-                ArrangeCircle();
-                break;
-
-            default:
-                Debug.LogWarning($"Unknown arrange mode: {mode}");
-                break;
-        }
-    }
-    private void ArrangeRow()
-    {
-        float spacing = 2f; // 간격
-
-        for (int i = 0; i < selected_agents.Count; i++)
-        {
-            var agent = selected_agents[i];
-            agent.transform.position = new Vector3(i * spacing, 0, 0) + instantiatePosition.position;
-            agent.Info.position = agent.transform.position;
-        }
-    }
-    private void ArrangeMatrix()
-    {
-        int count = selected_agents.Count;
-        int columns = Mathf.CeilToInt(Mathf.Sqrt(count));
-        int rows = Mathf.CeilToInt(count / (float)columns);
-
-        float spacing = 2f;
-
-        for (int i = 0; i < count; i++)
-        {
-            var agent = selected_agents[i];
-
-            int row = i / columns;
-            int col = i % columns;
-
-            agent.transform.position = new Vector3(col * spacing, 0, row * spacing) + instantiatePosition.position;
-            agent.Info.position = agent.transform.position;
-        }
-    }
-    private void ArrangeCircle()
-    {
-        int count = selected_agents.Count;
-        float radius = 5f;
-
-        for (int i = 0; i < count; i++)
-        {
-            float angle = i * Mathf.PI * 2f / count;
-
-            float x = Mathf.Cos(angle) * radius;
-            float z = Mathf.Sin(angle) * radius;
-
-            selected_agents[i].transform.position = new Vector3(x, 0, z) + instantiatePosition.position;
-            selected_agents[i].Info.position = selected_agents[i].transform.position;
-        }
-    }
-    #endregion
     // ----------- Util Func ------------
 
     private T GetOrAdd<T>(GameObject obj) where T : Component
