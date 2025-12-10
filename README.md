@@ -13,7 +13,7 @@
 
 # MIYA : VR Voice Interface
 
-[<img width="640" height="360" alt="Image" src="https://github.com/user-attachments/assets/f10e0991-487b-44e0-9c63-2c5ef44fbda8" />](https://youtu.be/uab5hOoRDZ0)<br>
+[<img width="640" height="360" alt="Image" src="https://github.com/user-attachments/assets/f10e0991-487b-44e0-9c63-2c5ef44fbda8" />](https://youtu.be/mma5uJsDFiM?si=Fx0bUf5QaVs4gaaJ)<br>
 ☝️Demo Video
 
 ---
@@ -64,9 +64,7 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 3.  **Launch**
     - Open `Assets/Scenes/ExampleMIYA.unity` and press **Play**.
 
-> 📖 **Need a Step-by-Step Guide?**
->
-> If you are setting this up for the first time or need detailed configuration instructions,<br>
+> 📖 **Need a Step-by-Step Guide?**<br>
 > please read the **[📄 Full Installation Guide](docs/INSTALLATION_GUIDE.md)**.
 
 #### 🛠 Inspector Configuration
@@ -116,7 +114,7 @@ Experience the core capabilities of MIYA through these voice commands.
 | <img src="docs/images/03.move.gif" width="200" /> | <img src="docs/images/04.rotate.gif" width="200" /> |
 | *"Move cube right"* | *"Rotate cube 45 degrees"* |
 
-> 🚀 **Explore All 13 Commands**
+> 🚀 **Explore All 13 Commands**<br>
 > Check out the full gallery in the **[📄 Command Showcase](docs/COMMANDS.md)**.
 
 ---
