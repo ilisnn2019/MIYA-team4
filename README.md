@@ -13,30 +13,41 @@
 
 # MIYA : VR Voice Interface
 
-[<img width="640" height="360" alt="Image" src="https://github.com/user-attachments/assets/f10e0991-487b-44e0-9c63-2c5ef44fbda8" />](https://youtu.be/uab5hOoRDZ0)<br>
+[<img width="640" height="360" alt="Image" src="https://github.com/user-attachments/assets/f10e0991-487b-44e0-9c63-2c5ef44fbda8" />](https://youtu.be/mma5uJsDFiM?si=Fx0bUf5QaVs4gaaJ)<br>
 ☝️Demo Video
 
 ---
 
 ### 💡 WHAT
-MIYA is a natural language voice interface designed for Unity VR environments. Users interact exclusively via voice, leveraging Large Language Models (LLM) and Speech-To-Text (STT) technology to create,transform and manipulate VR objects through speech-driven commands.
-**Key Proposition:** MIYA proposes the full potential of a voice-only interface in immersive VR. You can control all scenes and manage objects without the need for keyboard, controller, or gesture input—just voice.
+<img width="640" height="300" alt="Image" src="https://github.com/user-attachments/assets/0a1f70ad-9e9d-4e17-a0e8-2af9b3cc890c" /><br>
+- MIYA is a natural language voice interface designed for Unity VR environments. Users interact exclusively via voice, leveraging Large Language Models (LLM) and Speech-To-Text (STT) technology to create, transform and manipulate VR objects through speech-driven commands.<br>
+- **Key Proposition:** MIYA proposes the full potential of a voice-only interface in immersive VR. You can control all scenes and manage objects without the need for keyboard, controller, or gesture input—just voice.
 
 ### 🎯 WHY
 - Maximizes efficiency, immersion, and convenience with real-time voice command in VR.
 - User-friendly: Natural speech replaces complex control schemes.
 - Shows that voice input alone supports precise and intuitive manipulation, establishing a new standard for hands-free VR interaction.
 
+### 🚀 Performance
+We compared MIYA with existing voice interface baselines to validate its efficiency and accuracy.
+
+| Metric | Previous Work | **MIYA (Ours)** | Improvement |
+| :--- | :---: | :---: | :---: |
+| **STT Accuracy** | 96.71 ± 0.05% | **98.6%** | 🔼 **+1.89%** |
+| **TTC (Latency)**| 21.0s | **2.69s** | ⚡ **87% Faster** |
+
+> **Result:** MIYA achieves near-perfect command recognition while drastically reducing execution time, enabling a seamless real-time VR experience.
+
 ### 🧪 **Tested on**
-* MetaQuest3 / Varjo XR-4
+* MetaQuest2/3 / Varjo XR-4
 * Unity 6000.0.58f2
 * OpenAI API integration (wit.ai, Whisper STT supported)
 
 ### 🎧 **Support HMD**
 |                 | Meta Quest 2 / 3 | Vive | Varjo |
 |-----------------|:----------------:|:----:|:-----:|
-| **Demo Scene** |        ✅        |  ✅  |   ✅  |
-| **Miya Pipeline**|        ✅        |   -  |   ✅  |
+| **Demo Scene** |        ✅        |  -  |   -  |
+| **Miya Pipeline**|        ✅        |   ✅  |   ✅  |
 
 ---
 
@@ -46,12 +57,14 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 - Multi-pass command analysis: Context Awareness → Intent Recognition → Entity Extraction → Clarification.
 - Supports extensive voice commands: create, rotate, move, scale, color/texture change, selection, deletion, set weight/time, and more.
 - Designed for robust operation in collaborative and multimodal (voice+gesture) VR settings.
+> 📖 **Need a Step-by-Step Guide?** <br>
+> If you are setting this up for the first time, please read the **[Full Installation Guide](docs/INSTALLATION_GUIDE.md)**.
 
 #### 🔧 Unity Editor Setup
 
 1.  **Clone & Open**
     ```bash
-    git clone [https://github.com/ilisnn2019/MIYA-team4.git](https://github.com/ilisnn2019/MIYA-team4.git)
+    git clone https://github.com/ilisnn2019/MIYA-team4.git
     ```
     - Add the project to Unity Hub and open with **Unity 6000.0.58f2**.
 
@@ -62,11 +75,6 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 
 3.  **Launch**
     - Open `Assets/Scenes/ExampleMIYA.unity` and press **Play**.
-
-> 📖 **Need a Step-by-Step Guide?**
->
-> If you are setting this up for the first time or need detailed configuration instructions,<br>
-> please read the **[📄 Full Installation Guide](docs/INSTALLATION_GUIDE.md)**.
 
 #### 🛠 Inspector Configuration
 
@@ -84,15 +92,6 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 4. In the project configuration, create and apply the modified prompt.
 5. Test in scene and validate schema-driven execution.
 
-#### 🔑 OpenAI Key Setup
-
-1. Create `AccessKeySO` ScriptableObject
-<br><img width="400" height="500" alt="Image" src="https://github.com/user-attachments/assets/6aa028dc-4ca8-4f31-8bcb-c736594811ff" /><br>
-2. Enter OpenAI API Key in Inspector
-<br><img width="800" height="200" alt="Image" src="https://github.com/user-attachments/assets/1c4627ea-0b6c-4c7f-9645-80904926c4bb" /><br>
-3. Connect SO to relevant managers (e.g., `ChatManager`)
-<br><img width="800" height="60" alt="Image" src="https://github.com/user-attachments/assets/bbcdc1fd-2128-48a3-a57c-3de9ff11e268" /><br>
-
 
 #### 🎨 Customization
 
@@ -103,15 +102,30 @@ MIYA is a natural language voice interface designed for Unity VR environments. U
 
 ### 🎮 Demo Scene Usage (Demo Scene APK)
 
-- The Demo scene will be distributed as an APK.
-- Supported commands (create/move/rotate/color/texture/scale etc) will be documented in release notes.
-- Real APK usage includes wake-word detection, entity-driven commands, rapid real-time feedback.
-- Details and updates (supported devices, command guide) to follow with each release.
+You can experience the MIYA demo directly on your Meta Quest device without setting up the Unity Editor.
+
+- **Download:** Get the latest `MIYA_DEMO.apk` file from the **[Releases](../../releases)** page.
+- **Install:** Sideload the APK onto your Meta Quest 2 or 3 using tools like **SideQuest** or **Meta Quest Developer Hub (MQDH)**.
+- **Run:** Once installed, find the app in your library under **Unknown Sources** and launch it to test voice commands immediately.
 
 ---
 
 ## 📋 Sample Command
-In preparation
+
+Experience the core capabilities of MIYA through these voice commands.
+
+| **Create Object** | **Change Color** |
+|:---:|:---:|
+| <img src="docs/images/01.create.gif" width="200" /> | <img src="docs/images/02.color.gif" width="200" /> |
+| *"Create a cube"* | *"Make cube red"* |
+
+| **Move Object** | **Rotate Object** |
+|:---:|:---:|
+| <img src="docs/images/03.move.gif" width="200" /> | <img src="docs/images/04.rotate.gif" width="200" /> |
+| *"Move cube right"* | *"Rotate cube 45 degrees"* |
+
+> 🚀 **Explore All 13 Commands**<br>
+> Check out the full gallery in the **[Command Showcase](docs/COMMANDS.md)**.
 
 ---
 
