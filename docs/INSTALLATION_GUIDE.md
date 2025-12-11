@@ -87,7 +87,7 @@ Once the project is open, configure the Editor settings.
 
 ## Step 4: First Launch
 
-1.  Open the sample scene: `Assets/Scenes/ExampleMIYA.unity`.
+1.  Open the sample scene: `Assets/Scenes/Example.unity`.
 2.  Ensure your VR headset is connected and Microphone permissions are granted.
-3.  Press **Play (▶)** in the Unity Editor.
-<img width="500" alt="Play Mode" src="https://github.com/user-attachments/assets/91cdeccb-677e-4259-870f-eb664d402b9d" />
+3.  Press **Play (▶)** in the Unity Editor.<br>
+    <img width="141" height="197" alt="image" src="https://github.com/user-attachments/assets/6dece5e7-ba70-4d17-8b22-b8e030f22b7b" />
