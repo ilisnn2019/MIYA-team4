@@ -47,8 +47,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 10
-  skyController: {fileID: 0}
-  seaController: {fileID: 0}
+  OnCommandExcuteCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5383965154591714460}
+        m_TargetAssemblyTypeName: VoiceDetector, Assembly-CSharp
+        m_MethodName: OnStartDetecting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &8511959108979348378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +163,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MicIconViewer, Assembly-CSharp
+        m_MethodName: DetectingWakeWord
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8742021076982242197}
         m_TargetAssemblyTypeName: STTModule, Assembly-CSharp
         m_MethodName: StartRecording
@@ -165,6 +190,18 @@ MonoBehaviour:
   onStartListening:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MicIconViewer, Assembly-CSharp
+        m_MethodName: StartListening
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1346402364645050473}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
@@ -551,9 +588,9 @@ MonoBehaviour:
   _OnResponseReceived:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5383965154591714460}
-        m_TargetAssemblyTypeName: VoiceDetector, Assembly-CSharp
-        m_MethodName: OnStartDetecting
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MicIconViewer, Assembly-CSharp
+        m_MethodName: EndCommand
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -575,8 +612,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isActive: 1
-  prompt_name: demo_prompt
+  prompt_name: MIYA_prompt
   editorInput: "\uC2E4\uB9B0\uB354\uB97C \uC67C\uCABD\uC73C\uB85C 1 \uC62E\uAE30\uACE0,
     \uC0C9\uC744 \uBCF4\uB77C\uC0C9\uC73C\uB85C \uBC14\uAFD4, \uADF8\uB9AC\uACE0
     \uC7AC\uC9C8\uC740 \uB300\uB9AC\uC11D\uC73C\uB85C \uBC14\uAFD4."
@@ -634,13 +670,10 @@ MonoBehaviour:
   chatManager: {fileID: 3817347482898396228}
   executor: {fileID: 5380627188110523193}
   promptFile: {fileID: 4900000, guid: 9b86946e69f08b1439aac78c4751f441, type: 3}
-  objectListFile: {fileID: 11400000, guid: 21052a75314fee14cbd12a8996ef7e9f, type: 2}
-  textureListFile: {fileID: 11400000, guid: f892d73e399f90b468f85876cb51bdd8, type: 2}
-  newPromptName: demo_prompt
-  entities:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  objectListFile: {fileID: 11400000, guid: 8287f7497c901434ea929ae4ce064fd3, type: 2}
+  textureListFile: {fileID: 11400000, guid: cd555750e58591e44ac8093472699ad4, type: 2}
+  newPromptName: MIYA_prompt
+  entities: []
 --- !u!114 &1677811620631959417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,10 +732,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessKeySO: {fileID: 11400000, guid: ba964d59f2890eb41b3620345dbd4287, type: 2}
-  _sttType: 0
+  _sttType: 1
   _onSTTResponseCallback:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MicIconViewer, Assembly-CSharp
+        m_MethodName: ThinkLLM
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3817347482898396228}
         m_TargetAssemblyTypeName: ChatManager, Assembly-CSharp
         m_MethodName: OnSendMessage
@@ -715,9 +760,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ObjectsLookup, Assembly-CSharp
-        m_MethodName: Capture
+  _onSTTResponseErrorHandler:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5383965154591714460}
+        m_TargetAssemblyTypeName: VoiceDetector, Assembly-CSharp
+        m_MethodName: OnStartDetecting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
