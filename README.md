@@ -72,6 +72,13 @@ We compared MIYA with existing voice interface baselines to validate its efficie
     - **Platform:** Switch to `Android` (Quest) or `PC, Mac & Linux` in Build Settings.
     - **XR Plugin:** Enable **Oculus** (or OpenXR) in `Project Settings > XR Plug-in Management`.
     - **API Key:** **(Essential)** Configure your OpenAI API Key to enable voice features.
+    - 🔑 **OpenAI Key Setup**
+      1. Create `AccessKeySO` ScriptableObject
+      <br><img width="400" height="500" alt="Image" src="https://github.com/user-attachments/assets/6aa028dc-4ca8-4f31-8bcb-c736594811ff" /><br>
+      2. Enter OpenAI API Key in Inspector
+      <br><img width="800" height="200" alt="Image" src="https://github.com/user-attachments/assets/1c4627ea-0b6c-4c7f-9645-80904926c4bb" /><br>
+      3. Connect SO to relevant managers (e.g., `ChatManager`)
+      <br><img width="800" height="60" alt="Image" src="https://github.com/user-attachments/assets/bbcdc1fd-2128-48a3-a57c-3de9ff11e268" /><br>
 
 3.  **Launch**
     - Open `Assets/Scenes/Experiment.unity` and press **Play**.
@@ -100,6 +107,8 @@ We compared MIYA with existing voice interface baselines to validate its efficie
 ---
 
 ### 🎮 Demo Scene Usage (Demo Scene APK)
+> **⚠️ Compatibility Note**
+> While this demo is compatible with **Meta Quest 2**, we **strongly recommend using Meta Quest 3 or higher** for a smoother and optimal experience.
 
 You can experience the MIYA demo directly on your Meta Quest device without setting up the Unity Editor.
 
