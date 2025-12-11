@@ -74,12 +74,11 @@ We compared MIYA with existing voice interface baselines to validate its efficie
     - **API Key:** **(Essential)** Configure your OpenAI API Key to enable voice features.
 
 3.  **Launch**
-    - Open `Assets/Scenes/ExampleMIYA.unity` and press **Play**.
+    - Open `Assets/Scenes/Experiment.unity` and press **Play**.
 
 #### 🛠 Inspector Configuration
 
 - Create/assign ScriptableObjects (e.g. `AccessKeySO`) to core managers (`STTModule`, `Chat Manager`).
-- Check prefab/data connections in sample scenes (`VR_NLP`, `FirstPerson_NLP`).
 - Verify that the prompt is functioning correctly and properly configured.
 - Test wake-word and accurate entity parsing for best results.
 - `Project configuration` helps you can effectively utilize the pipeline.
