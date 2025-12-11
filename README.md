@@ -13,7 +13,8 @@
 
 # MIYA : VR Voice Interface
 
-[<img width="640" height="360" alt="Image" src="https://github.com/user-attachments/assets/f10e0991-487b-44e0-9c63-2c5ef44fbda8" />](https://youtu.be/mma5uJsDFiM?si=Fx0bUf5QaVs4gaaJ)<br>
+
+[<img width="640" height="360" alt="그림15" src="https://github.com/user-attachments/assets/682add49-93b2-47b3-8f10-934e903e1c56" />](https://youtu.be/mma5uJsDFiM?si=Fx0bUf5QaVs4gaaJ)<br>
 ☝️Demo Video
 
 ---
@@ -74,11 +75,11 @@ We compared MIYA with existing voice interface baselines to validate its efficie
     - **API Key:** **(Essential)** Configure your OpenAI API Key to enable voice features.
     - 🔑 **OpenAI Key Setup**
       1. Create `AccessKeySO` ScriptableObject
-      <br><img width="400" height="500" alt="Image" src="https://github.com/user-attachments/assets/6aa028dc-4ca8-4f31-8bcb-c736594811ff" /><br>
+      <br><img width="400" height="500" alt="그림12" src="https://github.com/user-attachments/assets/70ea784a-cb27-4ff0-91b1-822e1a46fba1" /><br>
       2. Enter OpenAI API Key in Inspector
-      <br><img width="800" height="200" alt="Image" src="https://github.com/user-attachments/assets/1c4627ea-0b6c-4c7f-9645-80904926c4bb" /><br>
+      <br><img width="800" height="200" alt="그림13" src="https://github.com/user-attachments/assets/1f458c6c-eaea-4348-85d8-28cc3ebfccba" /><br>
       3. Connect SO to relevant managers (e.g., `ChatManager`)
-      <br><img width="800" height="60" alt="Image" src="https://github.com/user-attachments/assets/bbcdc1fd-2128-48a3-a57c-3de9ff11e268" /><br>
+      <br><img width="800" height="60" alt="그림14" src="https://github.com/user-attachments/assets/7bcc19ab-5636-48d1-adc7-916c33e6a776" /><br>
 
 3.  **Launch**
     - Open `Assets/Scenes/Experiment.unity` and press **Play**.
